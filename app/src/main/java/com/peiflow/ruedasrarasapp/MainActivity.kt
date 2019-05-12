@@ -1,5 +1,6 @@
 package com.peiflow.ruedasrarasapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
@@ -61,7 +62,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     fun eventItemClicked(eventItem: EventData)
     {
-        Toast.makeText(this, "Clicked:", Toast.LENGTH_LONG).show()
+        val intent = Intent(this, EventDetails::class.java)
+        intent.putExtra("Event", eventItem)
+        startActivity(intent)
     }
 
     override fun onBackPressed() {

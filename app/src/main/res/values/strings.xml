@@ -13,4 +13,16 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+
+
+    <!-- Events detail activity -->
+    <string name="title_activity_event_details">Detalles del evento</string>
+    <string name="event_details_name">Evento:</string>
+    <string name="event_details_description">Descripción:</string>
+    <string name="event_details_date">Fecha:</string>
+    <string name="event_details_time">Hora:</string>
+    <string name="event_details_location">Lugar:</string>
+    <string name="title_activity_event_location">EventLocation</string>
+    <string name="open_maps_button">Ver en Maps</string>
+
 </resources>

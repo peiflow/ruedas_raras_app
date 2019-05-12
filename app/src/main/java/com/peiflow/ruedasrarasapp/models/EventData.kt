@@ -1,6 +1,8 @@
 package com.peiflow.ruedasrarasapp.models
 
-class EventData {
+import java.io.Serializable
+
+class EventData :Serializable{
     var uuid: String? = null
     var name: String? = null
     var description: String? = null
