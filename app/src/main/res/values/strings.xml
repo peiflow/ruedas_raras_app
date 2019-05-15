@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ruedas Raras</string>
+    <string name="app_name">RUEDAS RARAS</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -13,7 +13,11 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
-    <string name="menu_qr_reader">Lector QR</string>
+    <string name="menu_qr_reader">LECTOR QR</string>
+    <string name="menu_schedule">HORARIOS</string>
+    <string name="menu_temoto">TEMOTO</string>
+    <string name="menu_rr_face">RUEDAS RARAS</string>
+    <string name="menu_ayto_face">AYTO. TORO</string>
 
 
     <!-- Events detail activity -->
@@ -27,7 +31,13 @@
     <string name="open_maps_button">Ver en Maps</string>
     <string name="title_activity_qr_scanner">QrScanner</string>
 
-    <string name="scan_activity_center_qr">Center QR code</string>
+    <!-- QR reader activity -->
+    <string name="scan_activity_center_qr">Centra el código QR en el área</string>
+    <string name="title_activity_schedule">Schedule</string>
 
+    <!-- Schedule activity -->
+    <string name="tab1">VIE. 26</string>
+    <string name="tab2">SAB. 27</string>
+    <string name="tab3">DOM. 28</string>
 
 </resources>

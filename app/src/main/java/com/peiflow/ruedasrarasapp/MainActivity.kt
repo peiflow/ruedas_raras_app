@@ -2,6 +2,7 @@ package com.peiflow.ruedasrarasapp
 
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.NavigationView
@@ -100,20 +101,24 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_qr_reader -> {
                 startActivity(Intent(this, QrScanner::class.java))
             }
-            R.id.nav_gallery -> {
-
+            R.id.nav_schedule -> {
+                startActivity(Intent(this, Schedule::class.java))
             }
-            R.id.nav_slideshow -> {
+            R.id.nav_temoto -> {
 
             }
             R.id.nav_tools -> {
 
             }
-            R.id.nav_share -> {
-
+            R.id.nav_rr_face -> {
+                val openUrl = Intent(Intent.ACTION_VIEW)
+                openUrl.data = Uri.parse("https://www.facebook.com/Ruedas-Raras-525240697656845/")
+                startActivity(openUrl)
             }
-            R.id.nav_send -> {
-
+            R.id.nav_ayto_face -> {
+                val openUrl = Intent(Intent.ACTION_VIEW)
+                openUrl.data = Uri.parse("https://www.facebook.com/ToroAyto/")
+                startActivity(openUrl)
             }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)

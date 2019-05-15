@@ -107,16 +107,16 @@ class EventDetails : AppCompatActivity() , OnMapReadyCallback{
     }
 
     private fun processEventData(evt: EventData) {
-
+        val spanish = Locale("es", "ES")
         val fmt = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
         val date: Date = fmt.parse(evt.dateTime)
-        val fmtOut = SimpleDateFormat("dd/MM/yyyy")
+        val fmtOut = SimpleDateFormat("EEEE dd/MM/yyyy", spanish)
         val frmtDate: String = fmtOut.format(date)
         val timeOut = SimpleDateFormat("hh:mm:ss")
         val frmtTime: String = timeOut.format(date)
 
         desc_text.text = evt.description
-        date_text.text = frmtDate
+        date_text.text = frmtDate.capitalize()
         time_text.text = frmtTime
         address_text.text = evt.address
         markers = evt.locations!!
