@@ -11,9 +11,9 @@
     <application
             android:name=".controllers.RuedasRarasApp"
             android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
+            android:icon="@mipmap/ruedas_raras"
+            android:roundIcon="@mipmap/ruedas_raras_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
@@ -35,16 +35,14 @@
                 android:label="@string/title_activity_qr_scanner"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
-
-        <meta-data
-                android:name="com.google.android.geo.API_KEY"
-                android:value="@string/google_maps_key"/>
-
         <activity
                 android:name=".EventDetails"
                 android:label="@string/title_activity_event_details"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="@string/google_maps_key"/>
     </application>
 
 </manifest>

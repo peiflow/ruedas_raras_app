@@ -22,12 +22,15 @@ import com.peiflow.ruedasrarasapp.adapters.EventAdapter
 import com.peiflow.ruedasrarasapp.models.EventData
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import android.R.id.message
+
+
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     var REQUEST_CODE: Int = 100
     var PERMISSION_REQUEST: Int = 200
 
-    var dbm: DatabaseManager= DatabaseManager()
+    var dbm: DatabaseManager = DatabaseManager()
     var eventsList: MutableList<EventData> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +39,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        CheckPermissions()
+        checkPermissions()
 
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
@@ -49,20 +52,29 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            val email = Intent(Intent.ACTION_SEND)
+            email.putExtra(Intent.EXTRA_EMAIL, arrayOf<String>("asociacionruedasraras@gmail.com"))
+            email.putExtra(Intent.EXTRA_SUBJECT, "Ruedas Raras App")
+            email.putExtra(Intent.EXTRA_TEXT, message)
+
+            //need this to prompts email client only
+            email.type = "message/rfc822"
+
+            startActivity(Intent.createChooser(email, "Choose an Email client :"))
         }
     }
 
     override fun onStart() {
-        rv_events.layoutManager = LinearLayoutManager(this)
-        rv_events.hasFixedSize()
-        rv_events.adapter = EventAdapter(eventsList, {eventItem : EventData -> eventItemClicked(eventItem)})
+        setupEventsList()
         super.onStart()
     }
 
-    fun eventItemClicked(eventItem: EventData)
-    {
+    override fun onResume() {
+        setupEventsList()
+        super.onResume()
+    }
+
+    fun eventItemClicked(eventItem: EventData) {
         val intent = Intent(this, EventDetails::class.java)
         intent.putExtra("Event", eventItem)
         startActivity(intent)
@@ -126,11 +138,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    fun CheckPermissions() {
+    private fun checkPermissions() {
         val camPerm: Int = ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
         val gpsPerm: Int = ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
-        val readStoragePerm: Int = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
-        val writeStoragePerm: Int = ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        val readStoragePerm: Int =
+            ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
+        val writeStoragePerm: Int =
+            ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
         val internetPerm: Int = ContextCompat.checkSelfPermission(this, android.Manifest.permission.INTERNET)
 
         val permissions: Array<String> = arrayOf(
@@ -150,5 +164,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         ) {
             ActivityCompat.requestPermissions(this, permissions, PERMISSION_REQUEST)
         }
+    }
+
+    private fun setupEventsList() {
+        rv_events.layoutManager = LinearLayoutManager(this)
+        rv_events.hasFixedSize()
+        rv_events.adapter = EventAdapter(eventsList, { eventItem: EventData -> eventItemClicked(eventItem) })
     }
 }

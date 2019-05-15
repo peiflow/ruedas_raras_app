@@ -19,7 +19,6 @@
     <string name="menu_rr_face">RUEDAS RARAS</string>
     <string name="menu_ayto_face">AYTO. TORO</string>
 
-
     <!-- Events detail activity -->
     <string name="title_activity_event_details">Detalles del evento</string>
     <string name="event_details_name">Evento:</string>
@@ -29,13 +28,13 @@
     <string name="event_details_location">Lugar:</string>
     <string name="title_activity_event_location">EventLocation</string>
     <string name="open_maps_button">Ver en Maps</string>
-    <string name="title_activity_qr_scanner">QrScanner</string>
 
     <!-- QR reader activity -->
     <string name="scan_activity_center_qr">Centra el código QR en el área</string>
-    <string name="title_activity_schedule">Schedule</string>
+    <string name="title_activity_qr_scanner">LECTOR QR</string>
 
     <!-- Schedule activity -->
+    <string name="title_activity_schedule">HORARIOS</string>
     <string name="tab1">VIE. 26</string>
     <string name="tab2">SAB. 27</string>
     <string name="tab3">DOM. 28</string>
