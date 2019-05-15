@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.peiflow.ruedasrarasapp.R
 import com.peiflow.ruedasrarasapp.models.EventData
+import com.peiflow.ruedasrarasapp.utils.ImageUtils
 import kotlinx.android.synthetic.main.event_list_item.view.*
 
 class EventAdapter (val eventsList: List<EventData>, val clickListener: (EventData) -> Unit): Adapter<RecyclerView.ViewHolder>(){
@@ -31,6 +32,7 @@ class EventAdapter (val eventsList: List<EventData>, val clickListener: (EventDa
         fun bind(event: EventData, clickListener: (EventData) -> Unit) {
             itemView.tv_event_item_name.text = event.name
             itemView.tv_event_item_datetime.text = event.dateTime
+            ImageUtils(itemView.card_image_btn).execute(event.imgUrl)
             itemView.card_image_btn.setOnClickListener { clickListener(event)  }
             itemView.setOnClickListener { clickListener(event) }
         }

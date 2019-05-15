@@ -3,7 +3,6 @@ package com.peiflow.ruedasrarasapp
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button
 import android.widget.TextView
@@ -15,7 +14,8 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.peiflow.ruedasrarasapp.models.EventData
 import com.peiflow.ruedasrarasapp.models.LatLng
 
-import kotlinx.android.synthetic.main.activity_event_details.*
+import kotlinx.android.synthetic.main.app_bar.*
+import kotlinx.android.synthetic.main.content_event_details.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -27,6 +27,13 @@ class EventDetails : AppCompatActivity() , OnMapReadyCallback{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_event_details)
         setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
+        toolbar.setNavigationOnClickListener {
+            startActivity(Intent(applicationContext, MainActivity::class.java))
+            this.finish()
+        }
 
         val mapFragment: SupportMapFragment = supportFragmentManager
             .findFragmentById(R.id.mapFragment1) as SupportMapFragment
@@ -34,14 +41,19 @@ class EventDetails : AppCompatActivity() , OnMapReadyCallback{
 
         val opnMapsBtn: Button = findViewById(R.id.open_maps_button)
 
-        val evt = intent.getExtras().getSerializable("Event") as EventData
-        processMapInfo(evt)
+        val evt = intent.extras.getSerializable("Event") as EventData
+        processEventData(evt)
 
         opnMapsBtn.setOnClickListener {
             val openUrl = Intent(Intent.ACTION_VIEW)
             openUrl.data = Uri.parse(evt.routeUrl)
             startActivity(openUrl)
         }
+    }
+
+    override fun onBackPressed() {
+        this.finish()
+        startActivity(Intent(this, MainActivity::class.java))
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -94,12 +106,7 @@ class EventDetails : AppCompatActivity() , OnMapReadyCallback{
         mapSettings.setAllGesturesEnabled(true)
     }
 
-    private fun processMapInfo(evt: EventData) {
-        val eventTxt: TextView = findViewById(R.id.EventTxt)
-        val descTxt: TextView = findViewById(R.id.DescTxt)
-        val dateTxt: TextView = findViewById(R.id.DateTxt)
-        val timeTxt: TextView = findViewById(R.id.TimeTxt)
-        val locTxt: TextView = findViewById(R.id.LocationTxt)
+    private fun processEventData(evt: EventData) {
 
         val fmt = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
         val date: Date = fmt.parse(evt.dateTime)
@@ -108,12 +115,12 @@ class EventDetails : AppCompatActivity() , OnMapReadyCallback{
         val timeOut = SimpleDateFormat("hh:mm:ss")
         val frmtTime: String = timeOut.format(date)
 
-        eventTxt.text = evt.name
-        descTxt.text = evt.description
-        dateTxt.text = frmtDate
-        timeTxt.text = frmtTime
-        locTxt.text = evt.address
-
+        desc_text.text = evt.description
+        date_text.text = frmtDate
+        time_text.text = frmtTime
+        address_text.text = evt.address
         markers = evt.locations!!
+
+        this.title = evt.name
     }
 }

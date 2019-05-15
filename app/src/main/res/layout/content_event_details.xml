@@ -5,73 +5,79 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:orientation="vertical"
         tools:context=".EventDetails"
+        android:fillViewport="true"
         android:background="@color/cardview_dark_background">
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:orientation="vertical"
-                  android:layout_margin="25dp">
-        <LinearLayout android:layout_width="match_parent"
+                  android:layout_margin="10dp">
+        <!--<LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal" android:layout_marginBottom="15dp">
-            <TextView
+            <TextView style="@style/LabelStyle"
                       android:layout_width="90dp" android:layout_height="wrap_content"
                       android:text="@string/event_details_name"
                       android:id="@+id/textView2"/>
-            <TextView
+            <TextView style="@style/ContentTextStyle"
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:id="@+id/EventTxt"
                       app:layout_constraintTop_toTopOf="parent"/>
-        </LinearLayout>
+        </LinearLayout>-->
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal" android:layout_marginBottom="15dp">
-            <TextView android:layout_width="90dp" android:layout_height="wrap_content"
+            <!--<TextView style="@style/LabelStyle"
+                      android:layout_width="90dp" android:layout_height="wrap_content"
                       android:text="@string/event_details_description"
-                      android:id="@+id/textView3"/>
-            <TextView
+                      android:id="@+id/textView3"/>-->
+            <TextView style="@style/ContentTextStyle"
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
-                      android:id="@+id/DescTxt"/>
+                      android:id="@+id/desc_text"/>
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal" android:layout_marginBottom="15dp">
-            <TextView android:layout_width="90dp" android:layout_height="wrap_content"
+            <!--<TextView style="@style/LabelStyle"
+                      android:layout_width="90dp" android:layout_height="wrap_content"
                       android:text="@string/event_details_date"
-                      android:id="@+id/textView4"/>
-            <TextView
+                      android:id="@+id/date_label"/>-->
+            <TextView style="@style/ContentTextStyle"
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
-                      android:id="@+id/DateTxt"/>
+                      android:id="@+id/date_text"/>
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal" android:layout_marginBottom="15dp">
-            <TextView android:layout_width="90dp" android:layout_height="wrap_content"
+<!--            <TextView style="@style/LabelStyle"
+                      android:layout_width="90dp"
+                      android:layout_height="wrap_content"
                       android:text="@string/event_details_time"
-                      android:id="@+id/textView5"/>
-            <TextView
+                      android:id="@+id/time_label"/>-->
+            <TextView style="@style/ContentTextStyle"
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
-                      android:id="@+id/TimeTxt"/>
-
+                      android:id="@+id/time_text"/>
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal" android:layout_marginBottom="15dp">
-
-            <TextView android:layout_width="90dp" android:layout_height="wrap_content"
+<!--            <TextView style="@style/LabelStyle"
+                      android:layout_width="90dp" android:layout_height="wrap_content"
                       android:text="@string/event_details_location"
-                      android:id="@+id/textView11" android:layout_gravity="center_vertical"/>
-            <TextView
+                      android:id="@+id/address_label"
+                      android:layout_gravity="center_vertical"/>-->
+            <TextView style="@style/ContentTextStyle"
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:layout_gravity="center_vertical"
-                      android:id="@+id/LocationTxt"/>
-
+                      android:id="@+id/address_text"/>
         </LinearLayout>
 
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
@@ -84,10 +90,12 @@
                   class="com.google.android.gms.maps.SupportMapFragment"/>
 
         <Button
+                android:layout_marginTop="10dp"
                 android:id="@+id/open_maps_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/open_maps_button"
-        />
+                android:background="@color/secondaryDarkColor"
+                android:padding="5dp"/>
     </LinearLayout>
 </ScrollView>

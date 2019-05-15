@@ -1,8 +1,13 @@
 package com.peiflow.ruedasrarasapp
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.NavigationView
+import android.support.design.widget.Snackbar
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
@@ -11,21 +16,26 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
+import com.peiflow.ruedasrarasapp.adapters.DatabaseManager
 import com.peiflow.ruedasrarasapp.adapters.EventAdapter
 import com.peiflow.ruedasrarasapp.models.EventData
-import com.peiflow.ruedasrarasapp.models.LatLng
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+    var REQUEST_CODE: Int = 100
+    var PERMISSION_REQUEST: Int = 200
 
+    var dbm: DatabaseManager= DatabaseManager()
+    var eventsList: MutableList<EventData> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        CheckPermissions()
 
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
@@ -34,30 +44,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+        dbm.ReadDatabase(eventsList)
 
-        var eventsList = mutableListOf<EventData>()
-        val event = EventData()
-        event.uuid = "000"
-        event.name = "Ruta sabado"
-        event.description = "Ruta del sábado por la mañana a Tiedra"
-        event.address =  "Plaza mayor"
-        event.locations = mutableListOf(LatLng(41.521052,-5.393818),LatLng(41.650273,-5.269575))
-        event.routeUrl = "https://www.google.es/maps/dir/Toro+(Zamora),+Toro/47530+San+Román+de+Hornija,+Valladolid/Castronuño/La+Bóveda+de+Toro/Venialbo/@41.433834,-5.5421648,11z/data=!3m1!4b1!4m32!4m31!1m5!1m1!1s0xd38959c132a704f:0xa2b7a1b491bfb470!2m2!1d-5.3913375!2d41.5274417!1m5!1m1!1s0xd389620bacd852d:0x797ca0d3abb920fc!2m2!1d-5.2847709!2d41.480658!1m5!1m1!1s0xd38bb76f5686111:0x9bf614a77db387a6!2m2!1d-5.2671378!2d41.387238!1m5!1m1!1s0xd38c79765e54131:0xd2d704f21b666fe2!2m2!1d-5.4109725!2d41.3430855!1m5!1m1!1s0xd38c361b0eaff17:0x789cd4ef0164bb81!2m2!1d-5.5367936!2d41.3895764!3e0"
-        event.dateTime = "27/07/2019 11:00:00"
-        event.imgUrl = "https://image.shutterstock.com/image-vector/colorful-seamless-geometric-pattern-450w-161998277.jpg"
-        eventsList.add(event)
-
-        //recycler view
-        rv_events.layoutManager = LinearLayoutManager(this)
-        rv_events.hasFixedSize()
-        rv_events.adapter = EventAdapter(eventsList, {eventItem : EventData -> eventItemClicked(eventItem)})
-
-
-        /*val fab: FloatingActionButton = findViewById(R.id.fab)
+        val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
-        }*/
+        }
+    }
+
+    override fun onStart() {
+        rv_events.layoutManager = LinearLayoutManager(this)
+        rv_events.hasFixedSize()
+        rv_events.adapter = EventAdapter(eventsList, {eventItem : EventData -> eventItemClicked(eventItem)})
+        super.onStart()
     }
 
     fun eventItemClicked(eventItem: EventData)
@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val intent = Intent(this, EventDetails::class.java)
         intent.putExtra("Event", eventItem)
         startActivity(intent)
+        this.finish()
     }
 
     override fun onBackPressed() {
@@ -74,6 +75,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         } else {
             super.onBackPressed()
         }
+        this.finish()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -95,8 +97,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_home -> {
-                // Handle the camera action
+            R.id.nav_qr_reader -> {
+                startActivity(Intent(this, QrScanner::class.java))
             }
             R.id.nav_gallery -> {
 
@@ -117,5 +119,31 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    fun CheckPermissions() {
+        val camPerm: Int = ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
+        val gpsPerm: Int = ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
+        val readStoragePerm: Int = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
+        val writeStoragePerm: Int = ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        val internetPerm: Int = ContextCompat.checkSelfPermission(this, android.Manifest.permission.INTERNET)
+
+        val permissions: Array<String> = arrayOf(
+            android.Manifest.permission.CAMERA,
+            android.Manifest.permission.ACCESS_FINE_LOCATION,
+            android.Manifest.permission.READ_EXTERNAL_STORAGE,
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            android.Manifest.permission.INTERNET
+        )
+
+
+        if (camPerm != PackageManager.PERMISSION_GRANTED
+            || gpsPerm != PackageManager.PERMISSION_GRANTED
+            || readStoragePerm != PackageManager.PERMISSION_GRANTED
+            || writeStoragePerm != PackageManager.PERMISSION_GRANTED
+            || internetPerm != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(this, permissions, PERMISSION_REQUEST)
+        }
     }
 }

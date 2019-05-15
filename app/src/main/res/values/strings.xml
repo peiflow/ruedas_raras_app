@@ -13,6 +13,7 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="menu_qr_reader">Lector QR</string>
 
 
     <!-- Events detail activity -->
@@ -24,5 +25,9 @@
     <string name="event_details_location">Lugar:</string>
     <string name="title_activity_event_location">EventLocation</string>
     <string name="open_maps_button">Ver en Maps</string>
+    <string name="title_activity_qr_scanner">QrScanner</string>
+
+    <string name="scan_activity_center_qr">Center QR code</string>
+
 
 </resources>
