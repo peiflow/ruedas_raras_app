@@ -78,7 +78,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val intent = Intent(this, EventDetails::class.java)
         intent.putExtra("Event", eventItem)
         startActivity(intent)
-        this.finish()
     }
 
     override fun onBackPressed() {
@@ -114,7 +113,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(Intent(this, QrScanner::class.java))
             }
             R.id.nav_schedule -> {
-                startActivity(Intent(this, Schedule::class.java))
+                val intent = Intent(this, Schedule::class.java)
+                val eventsArray:Array<EventData> = eventsList.toTypedArray()
+                intent.putExtra("Events", eventsArray)
+                startActivity(intent)
             }
             R.id.nav_temoto -> {
 

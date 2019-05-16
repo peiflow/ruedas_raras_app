@@ -32,6 +32,8 @@ class QrScanner : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qr_scanner)
         setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
 
         cameraView = findViewById(R.id.cameraView)
         cameraView.setZOrderMediaOverlay(true)
@@ -81,7 +83,6 @@ class QrScanner : AppCompatActivity() {
 
     override fun onBackPressed() {
         this.finish()
-        startActivity(Intent(this, MainActivity::class.java))
     }
 
     private fun startupCamera() {

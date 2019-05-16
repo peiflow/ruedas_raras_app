@@ -35,14 +35,15 @@ class EventDetails : AppCompatActivity() , OnMapReadyCallback{
             this.finish()
         }
 
+        val evt = intent.extras.getSerializable("Event") as EventData
+        processEventData(evt)
+
         val mapFragment: SupportMapFragment = supportFragmentManager
             .findFragmentById(R.id.mapFragment1) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
         val opnMapsBtn: Button = findViewById(R.id.open_maps_button)
 
-        val evt = intent.extras.getSerializable("Event") as EventData
-        processEventData(evt)
 
         opnMapsBtn.setOnClickListener {
             val openUrl = Intent(Intent.ACTION_VIEW)
@@ -53,7 +54,6 @@ class EventDetails : AppCompatActivity() , OnMapReadyCallback{
 
     override fun onBackPressed() {
         this.finish()
-        startActivity(Intent(this, MainActivity::class.java))
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
