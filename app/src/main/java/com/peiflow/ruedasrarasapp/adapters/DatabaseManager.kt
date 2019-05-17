@@ -12,10 +12,33 @@ import com.peiflow.ruedasrarasapp.models.LatLng
 
 class DatabaseManager {
 
-    var dbRef: DatabaseReference
+    private var dbInst: FirebaseDatabase
+    var eventsDbRef: DatabaseReference
+    var hashDbRef: DatabaseReference
 
     constructor() {
-        dbRef = FirebaseDatabase.getInstance().getReference("events")
+        dbInst = FirebaseDatabase.getInstance()
+        eventsDbRef = dbInst.getReference("events")
+        hashDbRef = dbInst.getReference("events_hash")
+    }
+
+    fun GetEventsHash() : String
+    {
+        var hash:String = ""
+        val listener = object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+                Log.e(TAG, "onCancelled: Failed to read message --> ${p0.toException()}")
+            }
+
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    hash = dataSnapshot.value as String
+                }
+            }
+        }
+        hashDbRef.addValueEventListener(listener)
+
+        return hash
     }
 
     fun ReadDatabase(eventsList: MutableList<EventData>) {
@@ -38,13 +61,13 @@ class DatabaseManager {
             }
         }
 
-        dbRef.addValueEventListener(eventsListener)
+        eventsDbRef.addValueEventListener(eventsListener)
     }
 
     fun PopEventCollection(context: Context) {
 
-        dbRef.setValue(null)
-        var key = dbRef.push().key
+        eventsDbRef.setValue(null)
+        var key = eventsDbRef.push().key
         val event: EventData
         if (key != null) {
             event = EventData()
@@ -60,10 +83,10 @@ class DatabaseManager {
                 "https://image.shutterstock.com/image-vector/colorful-seamless-geometric-pattern-450w-161998277.jpg"
 
 
-            dbRef.child(key).setValue(event)
+            eventsDbRef.child(key).setValue(event)
         }
 
-        key = dbRef.push().key
+        key = eventsDbRef.push().key
         val event2: EventData
         if (key != null) {
             event2 = EventData(
@@ -77,10 +100,10 @@ class DatabaseManager {
                 "https://image.shutterstock.com/image-vector/pixel-monsters-cartoon-vector-pattern-450w-584585053.jpg"
             )
 
-            dbRef.child(key).setValue(event2)
+            eventsDbRef.child(key).setValue(event2)
         }
 
-        key = dbRef.push().key
+        key = eventsDbRef.push().key
         val event3: EventData
         if (key != null) {
             event3 = EventData(
@@ -93,7 +116,7 @@ class DatabaseManager {
                 "27/07/2019 00:00:00",
                 "https://image.shutterstock.com/image-vector/colorful-seamless-geometric-pattern-450w-161998277.jpg"
             )
-            dbRef.child(key).setValue(event3)
+            eventsDbRef.child(key).setValue(event3)
 
             Toast.makeText(context, "DB reset", Toast.LENGTH_LONG).show()
         }
