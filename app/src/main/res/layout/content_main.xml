@@ -13,13 +13,14 @@
             android:layout_height="0dp"
             app:srcCompat="@drawable/cartel_concentracion_header"
             android:id="@+id/ib_cartel"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/rv_events"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:clickable="true"
-            android:background="@android:color/transparent"/>
+            android:clickable="false"
+            android:background="@android:color/transparent"
+    />
     <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
                                           android:id="@+id/guideline"
                                           android:orientation="horizontal"

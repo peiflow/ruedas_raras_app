@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(intent)
             }
             R.id.nav_temoto -> {
-
+                startActivity(Intent(this, Hints::class.java))
             }
             R.id.nav_tools -> {
 

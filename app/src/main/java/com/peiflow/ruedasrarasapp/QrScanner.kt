@@ -1,5 +1,6 @@
 package com.peiflow.ruedasrarasapp
 
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -16,6 +17,7 @@ import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
 import com.peiflow.ruedasrarasapp.MainActivity
 import com.peiflow.ruedasrarasapp.R
+import com.peiflow.ruedasrarasapp.models.Hint
 import kotlinx.android.synthetic.main.app_bar.*
 import kotlinx.android.synthetic.main.content_qr_scanner.*
 import java.io.IOException
@@ -25,7 +27,6 @@ class QrScanner : AppCompatActivity() {
     lateinit var barcode: BarcodeDetector
     lateinit var cameraSource: CameraSource
     lateinit var holder: SurfaceHolder
-
     var barcodeText: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,6 +65,7 @@ class QrScanner : AppCompatActivity() {
                             Toast.makeText(this@QrScanner, "QR Code read", Toast.LENGTH_LONG).show()
                             if (!URLUtil.isValidUrl(text)) {
                                 tv_read_text.text = text
+                                Hint.saveHint(this@QrScanner, text)
                             } else {
                                 val openUrl = Intent(Intent.ACTION_VIEW)
                                 openUrl.data = Uri.parse(text)
@@ -116,5 +118,4 @@ class QrScanner : AppCompatActivity() {
             override fun surfaceDestroyed(holder: SurfaceHolder) {}
         })
     }
-
 }
