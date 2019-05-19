@@ -47,6 +47,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
+        ib_cartel.setOnClickListener{
+            startActivity(Intent(this, Cartel::class.java))
+        }
+
+
         nav_view.setNavigationItemSelectedListener(this)
         dbm.ReadDatabase(eventsList)
 
