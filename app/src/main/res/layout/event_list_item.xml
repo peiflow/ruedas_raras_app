@@ -13,7 +13,7 @@
                android:src="@mipmap/ruedas_raras"
                android:cropToPadding="true"
                android:background="?attr/actionBarDivider"
-               style="@android:style/Widget.DeviceDefault.ImageButton" android:alpha="0.7"/>
+               style="@android:style/Widget.DeviceDefault.ImageButton" android:alpha="0.6"/>
     <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
                   android:layout_centerVertical="true"
                   android:layout_alignLeft="@+id/card_image_btn"
