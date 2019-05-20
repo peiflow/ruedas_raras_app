@@ -42,7 +42,7 @@ class Hint {
 
         fun saveHint(context: Context, hint: String) {
             val parsed = Gson().toJson(hint)
-            var hintsList: MutableList<String> = getHints(context).toMutableList()
+            val hintsList: MutableList<String> = getHints(context).toMutableList()
             hintsList.add(parsed)
             saveHints(context, hintsList.toList())
         }

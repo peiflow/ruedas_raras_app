@@ -24,8 +24,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import android.R.id.message
 
-
-
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     var REQUEST_CODE: Int = 100
     var PERMISSION_REQUEST: Int = 200

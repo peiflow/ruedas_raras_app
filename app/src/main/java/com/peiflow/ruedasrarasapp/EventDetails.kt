@@ -83,9 +83,8 @@ class EventDetails : AppCompatActivity() , OnMapReadyCallback{
 
         }
         if (markers.size > 1) {
-            var lat: Double = lats / markers.size
-            var lon: Double = lons / markers.size
-
+            val lat: Double = lats / markers.size
+            val lon: Double = lons / markers.size
             mMap.moveCamera(
                 CameraUpdateFactory.newLatLngZoom(
                     com.google.android.gms.maps.model.LatLng(lat, lon),
@@ -108,11 +107,11 @@ class EventDetails : AppCompatActivity() , OnMapReadyCallback{
 
     private fun processEventData(evt: EventData) {
         val spanish = Locale("es", "ES")
-        val fmt = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
+        val fmt = SimpleDateFormat("dd/MM/yyyy hh:mm:ss", spanish)
         val date: Date = fmt.parse(evt.dateTime)
         val fmtOut = SimpleDateFormat("EEEE dd/MM/yyyy", spanish)
         val frmtDate: String = fmtOut.format(date)
-        val timeOut = SimpleDateFormat("hh:mm:ss")
+        val timeOut = SimpleDateFormat("hh:mm:ss", spanish)
         val frmtTime: String = timeOut.format(date)
 
         desc_text.text = evt.description

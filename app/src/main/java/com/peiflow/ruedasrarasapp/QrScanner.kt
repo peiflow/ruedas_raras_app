@@ -64,6 +64,7 @@ class QrScanner : AppCompatActivity() {
                             barcodes.valueAt(0).displayValue = barcodes.valueAt(0).displayValue
                             Toast.makeText(this@QrScanner, "QR Code read", Toast.LENGTH_LONG).show()
                             if (!URLUtil.isValidUrl(text)) {
+                                //TODO check if text is a hint or not
                                 tv_read_text.text = text
                                 Hint.saveHint(this@QrScanner, text)
                             } else {
@@ -88,7 +89,6 @@ class QrScanner : AppCompatActivity() {
     }
 
     private fun startupCamera() {
-
         barcodeText = ""
 
         cameraSource = CameraSource.Builder(this, barcode)

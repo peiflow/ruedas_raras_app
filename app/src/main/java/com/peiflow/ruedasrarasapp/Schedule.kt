@@ -10,6 +10,7 @@ import com.peiflow.ruedasrarasapp.models.EventData
 import kotlinx.android.synthetic.main.activity_schedule.*
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.content_schedule.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 class Schedule : AppCompatActivity() {
@@ -29,8 +30,10 @@ class Schedule : AppCompatActivity() {
             eventsList = Arrays.asList(*evntArray)
         }
 
+        println("EVENTS: "+evntArray.size)
 
-        println("EVENTS: $evntArray.size")
+        schedule_rv_events.layoutManager = LinearLayoutManager(this)
+        schedule_rv_events.hasFixedSize()
 
         tabBtn1.setOnCheckedChangeListener{ _, isChecked ->
             if (isChecked) {
@@ -38,6 +41,7 @@ class Schedule : AppCompatActivity() {
                 tabBtn2.isChecked = false
                 tabBtn3.isChecked = false
                 tabBtn1.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryLightColor))
+                schedule_rv_events.adapter = EventAdapter(filterEvents(0), { eventItem: EventData -> eventItemClicked(eventItem) })
             }
         }
         tabBtn2.setOnCheckedChangeListener{ _, isChecked ->
@@ -46,9 +50,7 @@ class Schedule : AppCompatActivity() {
                 tabBtn1.isChecked = false
                 tabBtn3.isChecked = false
                 tabBtn2.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryLightColor))
-                schedule_rv_events.layoutManager = LinearLayoutManager(this)
-                schedule_rv_events.hasFixedSize()
-                schedule_rv_events.adapter = EventAdapter(eventsList, { eventItem: EventData -> eventItemClicked(eventItem) })
+                schedule_rv_events.adapter = EventAdapter(filterEvents(1), { eventItem: EventData -> eventItemClicked(eventItem) })
             }
         }
         tabBtn3.setOnCheckedChangeListener{ _, isChecked ->
@@ -57,9 +59,14 @@ class Schedule : AppCompatActivity() {
                 tabBtn1.isChecked = false
                 tabBtn2.isChecked = false
                 tabBtn3.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryLightColor))
+                schedule_rv_events.adapter = EventAdapter(filterEvents(2), { eventItem: EventData -> eventItemClicked(eventItem) })
             }
         }
 
+    }
+
+    override fun onBackPressed() {
+        this.finish()
     }
 
     private fun resetBtns()
@@ -69,14 +76,42 @@ class Schedule : AppCompatActivity() {
         tabBtn3.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryDarkColor))
     }
 
-    override fun onBackPressed() {
-        this.finish()
-    }
-
     fun eventItemClicked(eventItem: EventData) {
         val intent = Intent(this, EventDetails::class.java)
         intent.putExtra("Event", eventItem)
         startActivity(intent)
     }
 
+    private fun filterEvents(i:Int) : List<EventData> {
+        var resultList: MutableList<EventData> = mutableListOf()
+        var date: Date
+        val fmt = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
+        when(i){
+            0->{
+                for (event in eventsList){
+                    date = fmt.parse(event.dateTime)
+                    if(date.day == 26){
+                        resultList.add(event)
+                    }
+                }
+            }
+            1->{
+                for (event in eventsList){
+                    date = fmt.parse(event.dateTime)
+                    if(date.day == 27){
+                        resultList.add(event)
+                    }
+                }
+            }
+            2->{
+                for (event in eventsList){
+                    date = fmt.parse(event.dateTime)
+                    if(date.day == 28){
+                        resultList.add(event)
+                    }
+                }
+            }
+        }
+        return resultList
+    }
 }
