@@ -16,7 +16,6 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import com.peiflow.ruedasrarasapp.adapters.DatabaseManager
 import com.peiflow.ruedasrarasapp.adapters.EventAdapter
 import com.peiflow.ruedasrarasapp.models.EventData
 import kotlinx.android.synthetic.main.activity_main.*
@@ -24,13 +23,15 @@ import kotlinx.android.synthetic.main.content_main.*
 import android.R.id.message
 import android.support.v7.widget.RecyclerView
 import android.widget.LinearLayout
+import com.peiflow.ruedasrarasapp.adapters.FirestoreManager
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     var REQUEST_CODE: Int = 100
     var PERMISSION_REQUEST: Int = 200
 
-    var dbm: DatabaseManager = DatabaseManager()
+    val firestoneManager: FirestoreManager = FirestoreManager()
+    //var dbm: DatabaseManager = DatabaseManager()
     var eventsList: MutableList<EventData> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +41,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setSupportActionBar(toolbar)
 
         checkPermissions()
+
+        firestoneManager.getEventsByDate(this@MainActivity)
 
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
@@ -52,7 +55,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         nav_view.setNavigationItemSelectedListener(this)
-        dbm.ReadDatabase(this, eventsList)
+        //dbm.ReadDatabase(this, eventsList)
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
