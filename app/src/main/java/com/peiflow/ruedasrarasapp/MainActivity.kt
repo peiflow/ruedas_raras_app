@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.NavigationView
-import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.GravityCompat
@@ -23,6 +22,9 @@ import com.peiflow.ruedasrarasapp.models.EventData
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import android.R.id.message
+import android.support.v7.widget.RecyclerView
+import android.widget.LinearLayout
+
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     var REQUEST_CODE: Int = 100
@@ -45,18 +47,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
-        ib_cartel.setOnClickListener{
+        ib_cartel.setOnClickListener {
             startActivity(Intent(this, Cartel::class.java))
         }
 
-
         nav_view.setNavigationItemSelectedListener(this)
-        dbm.ReadDatabase(eventsList)
+        dbm.ReadDatabase(this, eventsList)
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
             val email = Intent(Intent.ACTION_SEND)
-            email.putExtra(Intent.EXTRA_EMAIL, arrayOf<String>("asociacionruedasraras@gmail.com"))
+            email.putExtra(Intent.EXTRA_EMAIL, arrayOf("asociacionruedasraras@gmail.com"))
             email.putExtra(Intent.EXTRA_SUBJECT, "Ruedas Raras App")
             email.putExtra(Intent.EXTRA_TEXT, message)
 
@@ -68,12 +69,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onStart() {
-        setupEventsList()
+        //setupRecyclerView()
         super.onStart()
     }
 
     override fun onResume() {
-        setupEventsList()
+        //setupRecyclerView()
         super.onResume()
     }
 
@@ -171,9 +172,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-    private fun setupEventsList() {
-        rv_events.layoutManager = LinearLayoutManager(this)
-        rv_events.hasFixedSize()
-        rv_events.adapter = EventAdapter(eventsList, { eventItem: EventData -> eventItemClicked(eventItem) })
+    fun setupRecyclerView(events:MutableList<EventData>){
+        var recyclerView: RecyclerView = findViewById(R.id.rv_events)
+        val linearLayout = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        val adapter = EventAdapter(events.toList(), this::eventItemClicked)
+        recyclerView.layoutManager = linearLayout
+        recyclerView.setHasFixedSize(true)
+        recyclerView.adapter = adapter
     }
 }
