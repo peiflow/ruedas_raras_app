@@ -90,7 +90,7 @@ class Schedule : AppCompatActivity() {
             0->{
                 for (event in eventsList){
                     date = fmt.parse(event.dateTime)
-                    if(date.day == 26){
+                    if(date.date == 26){
                         resultList.add(event)
                     }
                 }
@@ -98,7 +98,7 @@ class Schedule : AppCompatActivity() {
             1->{
                 for (event in eventsList){
                     date = fmt.parse(event.dateTime)
-                    if(date.day == 27){
+                    if(date.date == 27){
                         resultList.add(event)
                     }
                 }
@@ -106,7 +106,7 @@ class Schedule : AppCompatActivity() {
             2->{
                 for (event in eventsList){
                     date = fmt.parse(event.dateTime)
-                    if(date.day == 28){
+                    if(date.date == 28){
                         resultList.add(event)
                     }
                 }
