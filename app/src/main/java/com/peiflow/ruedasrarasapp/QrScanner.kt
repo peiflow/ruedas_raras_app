@@ -49,9 +49,7 @@ class QrScanner : AppCompatActivity() {
         startupCamera()
 
         barcode.setProcessor(object : Detector.Processor<Barcode> {
-            override fun release() {
-
-            }
+            override fun release() {}
 
             override fun receiveDetections(detections: Detector.Detections<Barcode>) {
                 val barcodes = detections.detectedItems
@@ -62,7 +60,7 @@ class QrScanner : AppCompatActivity() {
                         barcodeText = text
                         runOnUiThread {
                             barcodes.valueAt(0).displayValue = barcodes.valueAt(0).displayValue
-                            Toast.makeText(this@QrScanner, "QR Code read", Toast.LENGTH_LONG).show()
+                            //Toast.makeText(this@QrScanner, "QR Code read", Toast.LENGTH_LONG).show()
                             if (!URLUtil.isValidUrl(text)) {
                                 //TODO check if text is a hint or not
                                 tv_read_text.text = text
