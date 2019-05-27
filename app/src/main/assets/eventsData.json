@@ -1,0 +1,46 @@
+{
+  "events" : {
+    "-LehykjrGbISSMNfMl0h" : {
+      "address" : "Plaza mayor",
+      "dateTime" : "27/07/2019 11:00:00",
+      "description" : "Ruta pasando por Belver de los Montes y Villanueva de los Caballeros para finalmente tomar un tentenpié en Tiedra",
+      "imgUrl" : "https://image.shutterstock.com/image-vector/colorful-seamless-geometric-pattern-450w-161998277.jpg",
+      "locations" : [ {
+        "lat" : 41.521052,
+        "lng" : -5.393818
+      }, {
+        "lat" : 41.650273,
+        "lng" : -5.269575
+      } ],
+      "name" : "Ruta sabado",
+      "routeUrl" : "https://www.google.es/maps/dir/Toro+(Zamora),+Toro/Belver+de+los+Montes/Villanueva+de+los+Caballeros/47870+Tiedra,+Valladolid/@41.7055232,-5.366918,12.25z/data=!4m26!4m25!1m5!1m1!1s0xd38959c132a704f:0xa2b7a1b491bfb470!2m2!1d-5.3913375!2d41.5274417!1m5!1m1!1s0xd38f46dd1ed4397:0x9ee0bcc6e7888afe!2m2!1d-5.4522276!2d41.7229172!1m5!1m1!1s0xd38885fff2b95ad:0xace1648ad3103e79!2m2!1d-5.2488573!2d41.7590608!1m5!1m1!1s0xd388fcc5ce6fded:0xb20006c40bd63faa!2m2!1d-5.2645259!2d41.6540243!3e0",
+      "uuid" : "-LehykjrGbISSMNfMl0h"
+    },
+    "-Lehykjx53dVYLlqOGtQ" : {
+      "address" : "N-122",
+      "dateTime" : "27/07/2019 19:00:00",
+      "description" : "Exhibición de trial",
+      "imgUrl" : "https://image.shutterstock.com/image-vector/pixel-monsters-cartoon-vector-pattern-450w-584585053.jpg",
+      "locations" : [ {
+        "lat" : 41.527033,
+        "lng" : -5.397596
+      } ],
+      "name" : "Exhibición trial",
+      "routeUrl" : "https://www.google.es/maps/place/41%C2%B031'37.4%22N+5%C2%B023'51.5%22W/@41.527049,-5.3981752,19z/data=!3m1!4b1!4m14!1m7!3m6!1s0xd38eb2cca7804b5:0x8c74b4293c1af881!2sPlaza+Mayor,+49800+Toro,+Zamora!3b1!8m2!3d41.5212425!4d-5.3942007!3m5!1s0x0:0x0!7e2!8m2!3d41.5270484!4d-5.3976278",
+      "uuid" : "-Lehykjx53dVYLlqOGtQ"
+    },
+    "-LehykjzyYNgyFPc8jiY" : {
+      "address" : "Plaza Mayor",
+      "dateTime" : "27/07/2019 00:00:00",
+      "description" : "Concierto de Xeria en la plaza mayor",
+      "imgUrl" : "https://image.shutterstock.com/image-vector/colorful-seamless-geometric-pattern-450w-161998277.jpg",
+      "locations" : [ {
+        "lat" : 41.521052,
+        "lng" : -5.393818
+      } ],
+      "name" : "Concierto Xeria",
+      "routeUrl" : "https://www.google.es/maps/place/Plaza+Mayor,+49800+Toro,+Zamora/@41.5212449,-5.3955021,17z/data=!3m1!4b1!4m5!3m4!1s0xd38eb2cca7804b5:0x8c74b4293c1af881!8m2!3d41.5212425!4d-5.3942007",
+      "uuid" : "-LehykjzyYNgyFPc8jiY"
+    }
+  }
+}
