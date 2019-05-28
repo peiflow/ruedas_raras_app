@@ -4,9 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
-import com.google.firebase.FirebaseApp
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.firestore.*
 import com.peiflow.ruedasrarasapp.MainActivity
 import com.peiflow.ruedasrarasapp.models.EventData
 
@@ -14,7 +12,7 @@ class FirestoreManager {
 
     val db:FirebaseFirestore = FirebaseFirestore.getInstance()
     val eventsColl = db.collection("events")
-    val hashColl= db.collection("hash")
+    val hashColl= db.collection("events_hash")
 
     constructor(){
     }
@@ -36,20 +34,19 @@ class FirestoreManager {
         return eventsList
     }
 
-    fun getEventsHash(context: Context):Int{
-        var hash:Int = 0
+    fun getEventsHash(context: Context):Long{
+        var hash:Long = 0
 
         hashColl.get().addOnCompleteListener(object: OnCompleteListener<QuerySnapshot>{
             override fun onComplete(p0: Task<QuerySnapshot>) {
                 if(p0.isSuccessful){
                     Log.d("HASH CODE", "Db hash: "+ p0.result.hashCode())
-                    if(p0 != null && p0.result!!.size() > 0){
-                        hash = p0.result as Int
+                    if(p0.result!!.size() > 0){
+                        hash = p0.result!!.first().data["hash"] as Long
                     }
                 }
             }
         })
-
         return hash
     }
 }
