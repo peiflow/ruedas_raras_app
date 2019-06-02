@@ -128,9 +128,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_temoto -> {
                 startActivity(Intent(this, Hints::class.java))
             }
-            R.id.nav_tools -> {
-
-            }
             R.id.nav_rr_face -> {
                 val openUrl = Intent(Intent.ACTION_VIEW)
                 openUrl.data = Uri.parse("https://www.facebook.com/Ruedas-Raras-525240697656845/")
