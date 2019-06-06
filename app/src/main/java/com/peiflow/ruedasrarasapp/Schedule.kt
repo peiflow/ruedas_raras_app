@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.view.KeyEvent
 import com.peiflow.ruedasrarasapp.adapters.EventAdapter
 import com.peiflow.ruedasrarasapp.models.EventData
 import kotlinx.android.synthetic.main.activity_schedule.*
@@ -26,15 +27,69 @@ class Schedule : AppCompatActivity() {
         val evntArray: Array<EventData> = intent.extras.getSerializable("Events") as Array<EventData>
 
         if(evntArray != null)
-        {
             eventsList = Arrays.asList(*evntArray)
-        }
-
-        println("EVENTS: "+evntArray.size)
 
         schedule_rv_events.layoutManager = LinearLayoutManager(this)
         schedule_rv_events.hasFixedSize()
 
+    }
+
+    override fun onStart(){
+        super.onStart()
+        setupOnClickListeners()
+        tabBtn1.isChecked = true
+    }
+
+    override fun onBackPressed() {
+        this.finish()
+    }
+
+    private fun resetBtns()    {
+        tabBtn1.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryDarkColor))
+        tabBtn2.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryDarkColor))
+        tabBtn3.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryDarkColor))
+    }
+
+    private fun eventItemClicked(eventItem: EventData) {
+        val intent = Intent(this, EventDetails::class.java)
+        intent.putExtra("Event", eventItem)
+        startActivity(intent)
+    }
+
+    private fun filterEvents(i:Int) : List<EventData> {
+        var resultList: MutableList<EventData> = mutableListOf()
+        var date: Date
+        val fmt = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
+        when(i){
+            0->{
+                for (event in eventsList){
+                    date = fmt.parse(event.dateTime)
+                    if(date.date == 26){
+                        resultList.add(event)
+                    }
+                }
+            }
+            1->{
+                for (event in eventsList){
+                    date = fmt.parse(event.dateTime)
+                    if(date.date == 27){
+                        resultList.add(event)
+                    }
+                }
+            }
+            2->{
+                for (event in eventsList){
+                    date = fmt.parse(event.dateTime)
+                    if(date.date == 28){
+                        resultList.add(event)
+                    }
+                }
+            }
+        }
+        return resultList
+    }
+
+    private fun setupOnClickListeners(){
         tabBtn1.setOnCheckedChangeListener{ _, isChecked ->
             if (isChecked) {
                 resetBtns()
@@ -62,56 +117,5 @@ class Schedule : AppCompatActivity() {
                 schedule_rv_events.adapter = EventAdapter(filterEvents(2), { eventItem: EventData -> eventItemClicked(eventItem) })
             }
         }
-
-    }
-
-    override fun onBackPressed() {
-        this.finish()
-    }
-
-    private fun resetBtns()
-    {
-        tabBtn1.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryDarkColor))
-        tabBtn2.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryDarkColor))
-        tabBtn3.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryDarkColor))
-    }
-
-    fun eventItemClicked(eventItem: EventData) {
-        val intent = Intent(this, EventDetails::class.java)
-        intent.putExtra("Event", eventItem)
-        startActivity(intent)
-    }
-
-    private fun filterEvents(i:Int) : List<EventData> {
-        var resultList: MutableList<EventData> = mutableListOf()
-        var date: Date
-        val fmt = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
-        when(i){
-            0->{
-                for (event in eventsList){
-                    date = fmt.parse(event.dateTime)
-                    if(date.day == 26){
-                        resultList.add(event)
-                    }
-                }
-            }
-            1->{
-                for (event in eventsList){
-                    date = fmt.parse(event.dateTime)
-                    if(date.day == 27){
-                        resultList.add(event)
-                    }
-                }
-            }
-            2->{
-                for (event in eventsList){
-                    date = fmt.parse(event.dateTime)
-                    if(date.day == 28){
-                        resultList.add(event)
-                    }
-                }
-            }
-        }
-        return resultList
     }
 }

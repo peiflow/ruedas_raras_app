@@ -179,5 +179,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         recyclerView.layoutManager = linearLayout
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = adapter
+        eventsList = events
     }
 }
