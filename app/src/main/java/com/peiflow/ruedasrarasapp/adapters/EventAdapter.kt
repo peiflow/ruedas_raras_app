@@ -33,17 +33,20 @@ class EventAdapter (val eventsList: List<EventData>, val clickListener: (EventDa
 
     class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(pos:Int, event: EventData, clickListener: (EventData) -> Unit) {
-            var r = pos.rem(2)
+/*            var r = pos.rem(2)
             if(r ==0){
+                itemView.card_image_btn.setImageDrawable(ContextCompat.getDrawable(itemView.context, R.drawable.tire_track))
                 itemView.event_list_item_linear_layout.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.primaryColor) )
             }else{
                 itemView.event_list_item_linear_layout.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.secondaryDarkColor) )
+                itemView.card_image_btn.setImageDrawable(ContextCompat.getDrawable(itemView.context, R.drawable.tire_track_1))
             }
+            ImageUtils(itemView.card_image_btn).execute(event.imgUrl)
+            itemView.card_image_btn.setOnClickListener { clickListener(event)  }
+            */
+            itemView.event_list_item_linear_layout.setOnClickListener{clickListener(event)}
             itemView.tv_event_item_name.text = event.name
             itemView.tv_event_item_datetime.text = event.dateTime
-            //ImageUtils(itemView.card_image_btn).execute(event.imgUrl)
-            itemView.event_list_item_linear_layout.setOnClickListener{clickListener(event)}
-            //itemView.card_image_btn.setOnClickListener { clickListener(event)  }
             itemView.setOnClickListener { clickListener(event) }
         }
     }
