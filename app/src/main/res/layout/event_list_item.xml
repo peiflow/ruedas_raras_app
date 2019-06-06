@@ -12,7 +12,7 @@
                android:scaleType="centerCrop" android:layout_centerInParent="true"
                android:cropToPadding="true"
                android:background="?attr/actionBarDivider"
-               style="@android:style/Widget.DeviceDefault.ImageButton" android:alpha="0.6"
+               style="@android:style/Widget.DeviceDefault.ImageButton"
                app:srcCompat="@drawable/tire_track_1"/>
     <LinearLayout android:id="@+id/event_list_item_linear_layout"
                   android:layout_width="match_parent" android:layout_height="match_parent"
