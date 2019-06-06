@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.view.KeyEvent
 import com.peiflow.ruedasrarasapp.adapters.EventAdapter
 import com.peiflow.ruedasrarasapp.models.EventData
 import kotlinx.android.synthetic.main.activity_schedule.*
@@ -26,57 +27,30 @@ class Schedule : AppCompatActivity() {
         val evntArray: Array<EventData> = intent.extras.getSerializable("Events") as Array<EventData>
 
         if(evntArray != null)
-        {
             eventsList = Arrays.asList(*evntArray)
-        }
-
-        println("EVENTS: "+evntArray.size)
 
         schedule_rv_events.layoutManager = LinearLayoutManager(this)
         schedule_rv_events.hasFixedSize()
 
-        tabBtn1.setOnCheckedChangeListener{ _, isChecked ->
-            if (isChecked) {
-                resetBtns()
-                tabBtn2.isChecked = false
-                tabBtn3.isChecked = false
-                tabBtn1.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryLightColor))
-                schedule_rv_events.adapter = EventAdapter(filterEvents(0), { eventItem: EventData -> eventItemClicked(eventItem) })
-            }
-        }
-        tabBtn2.setOnCheckedChangeListener{ _, isChecked ->
-            if (isChecked) {
-                resetBtns()
-                tabBtn1.isChecked = false
-                tabBtn3.isChecked = false
-                tabBtn2.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryLightColor))
-                schedule_rv_events.adapter = EventAdapter(filterEvents(1), { eventItem: EventData -> eventItemClicked(eventItem) })
-            }
-        }
-        tabBtn3.setOnCheckedChangeListener{ _, isChecked ->
-            if (isChecked) {
-                resetBtns()
-                tabBtn1.isChecked = false
-                tabBtn2.isChecked = false
-                tabBtn3.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryLightColor))
-                schedule_rv_events.adapter = EventAdapter(filterEvents(2), { eventItem: EventData -> eventItemClicked(eventItem) })
-            }
-        }
+    }
 
+    override fun onStart(){
+        super.onStart()
+        setupOnClickListeners()
+        tabBtn1.isChecked = true
     }
 
     override fun onBackPressed() {
         this.finish()
     }
 
-    private fun resetBtns()
-    {
+    private fun resetBtns()    {
         tabBtn1.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryDarkColor))
         tabBtn2.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryDarkColor))
         tabBtn3.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryDarkColor))
     }
 
-    fun eventItemClicked(eventItem: EventData) {
+    private fun eventItemClicked(eventItem: EventData) {
         val intent = Intent(this, EventDetails::class.java)
         intent.putExtra("Event", eventItem)
         startActivity(intent)
@@ -113,5 +87,35 @@ class Schedule : AppCompatActivity() {
             }
         }
         return resultList
+    }
+
+    private fun setupOnClickListeners(){
+        tabBtn1.setOnCheckedChangeListener{ _, isChecked ->
+            if (isChecked) {
+                resetBtns()
+                tabBtn2.isChecked = false
+                tabBtn3.isChecked = false
+                tabBtn1.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryLightColor))
+                schedule_rv_events.adapter = EventAdapter(filterEvents(0), { eventItem: EventData -> eventItemClicked(eventItem) })
+            }
+        }
+        tabBtn2.setOnCheckedChangeListener{ _, isChecked ->
+            if (isChecked) {
+                resetBtns()
+                tabBtn1.isChecked = false
+                tabBtn3.isChecked = false
+                tabBtn2.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryLightColor))
+                schedule_rv_events.adapter = EventAdapter(filterEvents(1), { eventItem: EventData -> eventItemClicked(eventItem) })
+            }
+        }
+        tabBtn3.setOnCheckedChangeListener{ _, isChecked ->
+            if (isChecked) {
+                resetBtns()
+                tabBtn1.isChecked = false
+                tabBtn2.isChecked = false
+                tabBtn3.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryLightColor))
+                schedule_rv_events.adapter = EventAdapter(filterEvents(2), { eventItem: EventData -> eventItemClicked(eventItem) })
+            }
+        }
     }
 }

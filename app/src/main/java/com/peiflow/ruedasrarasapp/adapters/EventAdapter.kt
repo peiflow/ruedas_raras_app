@@ -1,10 +1,13 @@
 package com.peiflow.ruedasrarasapp.adapters
 
+import android.graphics.Color
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.RecyclerView.Adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.common.io.Resources
 import com.peiflow.ruedasrarasapp.R
 import com.peiflow.ruedasrarasapp.models.EventData
 import com.peiflow.ruedasrarasapp.utils.ImageUtils
@@ -21,7 +24,7 @@ class EventAdapter (val eventsList: List<EventData>, val clickListener: (EventDa
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         // Populate ViewHolder with data that corresponds to the position in the list
         // which we are told to load
-        (holder as EventViewHolder).bind(eventsList[position], clickListener)
+        (holder as EventViewHolder).bind(position, eventsList[position], clickListener)
     }
 
     override fun getItemCount(): Int {
@@ -29,11 +32,18 @@ class EventAdapter (val eventsList: List<EventData>, val clickListener: (EventDa
     }
 
     class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(event: EventData, clickListener: (EventData) -> Unit) {
+        fun bind(pos:Int, event: EventData, clickListener: (EventData) -> Unit) {
+            var r = pos.rem(2)
+            if(r ==0){
+                itemView.event_list_item_linear_layout.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.primaryColor) )
+            }else{
+                itemView.event_list_item_linear_layout.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.secondaryDarkColor) )
+            }
             itemView.tv_event_item_name.text = event.name
             itemView.tv_event_item_datetime.text = event.dateTime
-            ImageUtils(itemView.card_image_btn).execute(event.imgUrl)
-            itemView.card_image_btn.setOnClickListener { clickListener(event)  }
+            //ImageUtils(itemView.card_image_btn).execute(event.imgUrl)
+            itemView.event_list_item_linear_layout.setOnClickListener{clickListener(event)}
+            //itemView.card_image_btn.setOnClickListener { clickListener(event)  }
             itemView.setOnClickListener { clickListener(event) }
         }
     }
