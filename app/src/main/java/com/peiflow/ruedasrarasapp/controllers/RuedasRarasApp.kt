@@ -1,30 +1,15 @@
 package com.peiflow.ruedasrarasapp.controllers
 
 import android.app.Application
-import android.content.ContentValues
-import android.util.Log
-import com.peiflow.ruedasrarasapp.adapters.FirestoreManager
-import com.peiflow.ruedasrarasapp.helpers.JsonHelper
-import com.peiflow.ruedasrarasapp.models.EventData
 import com.peiflow.ruedasrarasapp.models.Hint
 
 class RuedasRarasApp : Application() {
-    private var localDbEventHash: Long = 0
-    private var cloudDbEventHash: Long = 0
-    private lateinit var localDbEventsData: MutableList<EventData>
-    private lateinit var cloudDbEventsData: MutableList<EventData>
-    private lateinit var cloudDbRawEventsData: String
-
-    private lateinit var firestoreManager: FirestoreManager
 
     override fun onCreate() {
         super.onCreate()
-        //initialize variables
-        initializeVariables()
-        setupDatabase()
 
-        //Check hints file
-        if (!Hint.checkIfFileExists(this.applicationContext))
+
+        if(!Hint.checkIfFileExists(this.applicationContext))
             Hint.createFile(this.applicationContext)
         else
             Hint.getHints(this.applicationContext)

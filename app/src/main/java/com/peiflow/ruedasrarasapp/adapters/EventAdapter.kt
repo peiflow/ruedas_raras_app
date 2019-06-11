@@ -1,14 +1,23 @@
 package com.peiflow.ruedasrarasapp.adapters
 
+import android.graphics.Color
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.RecyclerView.Adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.common.io.Resources
 import com.peiflow.ruedasrarasapp.R
 import com.peiflow.ruedasrarasapp.models.EventData
 import com.peiflow.ruedasrarasapp.utils.ImageUtils
 import kotlinx.android.synthetic.main.event_list_item.view.*
+import java.lang.StringBuilder
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 class EventAdapter (val eventsList: List<EventData>, val clickListener: (EventData) -> Unit): Adapter<RecyclerView.ViewHolder>(){
 
@@ -29,12 +38,25 @@ class EventAdapter (val eventsList: List<EventData>, val clickListener: (EventDa
     }
 
     class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(event: EventData, clickListener: (EventData) -> Unit) {
+        fun bind( event: EventData, clickListener: (EventData) -> Unit) {
+            itemView.event_list_item_linear_layout.setOnClickListener{clickListener(event)}
             itemView.tv_event_item_name.text = event.name
-            itemView.tv_event_item_datetime.text = event.dateTime
-            ImageUtils(itemView.card_image_btn).execute(event.imgUrl)
-            itemView.card_image_btn.setOnClickListener { clickListener(event)  }
+            itemView.tv_event_item_datetime.text = convertDateTimeFormat(event.dateTime!!)
             itemView.setOnClickListener { clickListener(event) }
+        }
+
+        private fun convertDateTimeFormat(dateTime:String):String{
+            val fmt = SimpleDateFormat("dd/MM/yyyy HH:mm:ss")
+            val fmt2 = SimpleDateFormat("dd/MM/yyyy HH:mm")
+            var date: Date
+            date = fmt.parse(dateTime)
+            return fmt2.format(date)
+/*            var split = dateTime.split(" ")
+            val timeFormat = DateFormat.getTimeInstance(DateFormat.SHORT)
+            val dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM)
+            var time = timeFormat.parse(split[1])
+            var date = dateFormat.parse(split[0])
+            return  "$date $time"*/
         }
     }
 }

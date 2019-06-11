@@ -24,7 +24,8 @@
             app:headerLayout="@layout/nav_header_main"
             app:menu="@menu/activity_main_drawer"
             app:itemTextColor="@color/secondaryColor"
-            app:itemIconTint="@color/secondaryColor"
-            android:background="@color/cardview_dark_background"/>
+            app:itemIconTint="@color/secondaryDarkColor"
+            android:theme="@style/MenuTextItemStyle"
+            android:background="@color/primaryColor"/>
 
 </android.support.v4.widget.DrawerLayout>

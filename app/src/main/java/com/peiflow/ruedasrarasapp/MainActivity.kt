@@ -125,11 +125,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 intent.putExtra("Events", eventsArray)
                 startActivity(intent)
             }
-            R.id.nav_temoto -> {
+            R.id.nav_temoto_hints -> {
                 startActivity(Intent(this, Hints::class.java))
-            }
-            R.id.nav_tools -> {
-
             }
             R.id.nav_rr_face -> {
                 val openUrl = Intent(Intent.ACTION_VIEW)
@@ -182,5 +179,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         recyclerView.layoutManager = linearLayout
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = adapter
+        eventsList = events
     }
 }

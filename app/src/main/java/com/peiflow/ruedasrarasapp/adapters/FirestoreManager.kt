@@ -21,6 +21,11 @@ class FirestoreManager {
         var eventsList:MutableList<EventData> = mutableListOf()
         eventsColl.orderBy("dateTime").get().addOnCompleteListener(object : OnCompleteListener<QuerySnapshot> {
             override fun onComplete(p0: Task<QuerySnapshot>) {
+                if(p0.result!!.metadata.isFromCache)
+                    Log.d("tag", "LOCAL CACHE")
+                else
+                    Log.d("tag", "SERVER")
+
                 if(p0.isSuccessful){
                     Log.d("HASH CODE", "Data hash: "+ p0.result.hashCode())
                     for(item in p0.getResult()!!){

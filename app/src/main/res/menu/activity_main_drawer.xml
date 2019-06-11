@@ -2,7 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:tools="http://schemas.android.com/tools"
       tools:showIn="navigation_view">
-
     <group android:checkableBehavior="single">
         <item   
                 android:id="@+id/nav_qr_reader"
@@ -13,16 +12,16 @@
                 android:icon="@drawable/icons_planificador"
                 android:title="@string/menu_schedule"/>
         <item
-                android:id="@+id/nav_temoto"
+                android:id="@+id/nav_temoto_hints"
                 android:icon="@drawable/ic_menu_slideshow"
-                android:title="@string/menu_temoto"/>
+                android:title="@string/menu_temoto_hints"/>
         <item
-                android:id="@+id/nav_tools"
-                android:icon="@drawable/ic_menu_manage"
-                android:title="@string/menu_tools"/>
+                android:id="@+id/nav_temoto_guide"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_temoto_guide"/>
     </group>
 
-    <item android:title="Social">
+    <item android:title="Social" >
         <menu>
             <item
                     android:id="@+id/nav_rr_face"
@@ -34,5 +33,4 @@
                     android:title="@string/menu_ayto_face"/>
         </menu>
     </item>
-
 </menu>
