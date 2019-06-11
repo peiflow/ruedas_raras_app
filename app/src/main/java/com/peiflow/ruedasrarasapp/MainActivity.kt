@@ -125,7 +125,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 intent.putExtra("Events", eventsArray)
                 startActivity(intent)
             }
-            R.id.nav_temoto -> {
+            R.id.nav_temoto_hints -> {
                 startActivity(Intent(this, Hints::class.java))
             }
             R.id.nav_rr_face -> {

@@ -16,7 +16,8 @@
     <string name="menu_send">Send</string>
     <string name="menu_qr_reader">LECTOR QR</string>
     <string name="menu_schedule">HORARIOS</string>
-    <string name="menu_temoto">TEMOTO</string>
+    <string name="menu_temoto_hints">TEMOTO - PISTAS</string>
+    <string name="menu_temoto_guide">TEMOTO - INSTRUCCIONES</string>
     <string name="menu_rr_face">RUEDAS RARAS</string>
     <string name="menu_ayto_face">AYTO. TORO</string>
 
