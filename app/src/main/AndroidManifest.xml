@@ -44,6 +44,14 @@
                     android:value=".MainActivity"/>
         </activity>
         <activity
+                android:name=".Partners"
+                android:parentActivityName=".MainActivity"
+                android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".MainActivity"/>
+        </activity>
+        <activity
                 android:name=".Schedule"
                 android:label="@string/title_activity_schedule"
                 android:parentActivityName=".MainActivity"

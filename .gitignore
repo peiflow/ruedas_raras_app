@@ -63,4 +63,10 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
+ 
 node_modules
+
+js_script/credentials.json
+package-lock.json
+privacy.docx
+app/release/app.aab

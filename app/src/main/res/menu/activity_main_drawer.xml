@@ -9,7 +9,7 @@
                 android:title="@string/menu_qr_reader"/>
         <item
                 android:id="@+id/nav_schedule"
-                android:icon="@drawable/icons_planificador"
+                android:icon="@drawable/icon_planificador"
                 android:title="@string/menu_schedule"/>
         <item
                 android:id="@+id/nav_temoto_hints"
@@ -19,17 +19,21 @@
                 android:id="@+id/nav_temoto_guide"
                 android:icon="@drawable/ic_menu_slideshow"
                 android:title="@string/menu_temoto_guide"/>
+        <item
+                android:id="@+id/nav_partners"
+                android:icon="@drawable/icon_partners"
+                android:title="@string/menu_partners"/>
     </group>
 
     <item android:title="Social" >
         <menu>
             <item
                     android:id="@+id/nav_rr_face"
-                    android:icon="@drawable/icons_facebook"
+                    android:icon="@drawable/icon_facebook"
                     android:title="@string/menu_rr_face"/>
             <item
                     android:id="@+id/nav_ayto_face"
-                    android:icon="@drawable/icons_facebook"
+                    android:icon="@drawable/icon_facebook"
                     android:title="@string/menu_ayto_face"/>
         </menu>
     </item>
