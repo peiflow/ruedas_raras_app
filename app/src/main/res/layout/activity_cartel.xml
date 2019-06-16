@@ -6,7 +6,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".Cartel">
-    <ImageView android:layout_width="wrap_content"
+<!--    <ImageView android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:src="@drawable/cartel_concencentracion"/>
+               android:src="@drawable/cartel_concencentracion"/>-->
+    <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/pv_cartel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 </LinearLayout>
