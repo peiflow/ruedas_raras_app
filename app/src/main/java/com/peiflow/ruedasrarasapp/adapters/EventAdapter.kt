@@ -51,12 +51,6 @@ class EventAdapter (val eventsList: List<EventData>, val clickListener: (EventDa
             var date: Date
             date = fmt.parse(dateTime)
             return fmt2.format(date)
-/*            var split = dateTime.split(" ")
-            val timeFormat = DateFormat.getTimeInstance(DateFormat.SHORT)
-            val dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM)
-            var time = timeFormat.parse(split[1])
-            var date = dateFormat.parse(split[0])
-            return  "$date $time"*/
         }
     }
 }

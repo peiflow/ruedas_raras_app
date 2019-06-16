@@ -3,11 +3,13 @@ package com.peiflow.ruedasrarasapp.helpers
 import android.app.Application
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
+import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.peiflow.ruedasrarasapp.models.EventData
 import com.peiflow.ruedasrarasapp.utils.Constants
 import java.io.File
+import java.lang.Exception
 
 
 class JsonHelper {
@@ -30,7 +32,6 @@ class JsonHelper {
         }
 
         fun getEventsHash(app: Application): Long {
-
             val json_string: String =
                 app.baseContext.openFileInput(Constants.EVENTS_HASH_FILE_NAME).bufferedReader().use { it.readText() }
             if (json_string != "") {
@@ -43,33 +44,47 @@ class JsonHelper {
 
         fun getEventsData(app: Application): MutableList<EventData> {
             var eventsData: MutableList<EventData> = mutableListOf()
-            val file_name = "eventsData.json"
 
             val json_string: String =
                 app.baseContext.openFileInput(Constants.EVENTS_DATA_FILE_NAME).bufferedReader().use { it.readText() }
             //val json_string: String = app.assets.open(file_name).bufferedReader().use { it.readText() }
             if (json_string != "") {
-                val parsed = JsonParser().parse(json_string).asJsonObject
+                val parsed = JsonParser().parse(json_string).asJsonArray
+                for(p in parsed){
+                    val event:EventData = Gson().fromJson(p, EventData::class.java)
+                    eventsData.add(event)
+                }
+                /*val parsed = JsonParser().parse(json_string).asJsonObject
                 val keys = parsed.keySet()
                 for (key in keys) {
                     var eventArray = parsed[key].asJsonObject
                     for (key2 in eventArray.keySet()) {
                         val event: EventData = Gson().fromJson(eventArray[key2], EventData::class.java)
                         eventsData.add(event)
-
                     }
-                }
+                }*/
             }
-            return mutableListOf()
+            return eventsData
         }
 
-        fun saveRawEventsData(app: Application, rawEventsData: String) {
-
+        fun saveRawEventsData(app: Application, eventsData: MutableList<EventData>) {
+            try {
+                var serialized = Gson().toJson(eventsData)
+                app.baseContext.openFileOutput(Constants.EVENTS_DATA_FILE_NAME, MODE_PRIVATE).write(serialized.toByteArray())
+                Log.d("DATA SAVED","Events data json saved. Number of rows: ${eventsData.count()}")
+            }catch (ex:Exception){
+                Log.e("ERROR","Error saving events data json. $ex")
+            }
         }
 
-        fun saveHash(app:Application, hash:Long)
-        {
-            app.baseContext.openFileOutput(Constants.EVENTS_HASH_FILE_NAME, MODE_PRIVATE).write(hash.toString().toByteArray())
+        fun saveHash(app: Application, hash: Long) {
+            try{
+            app.baseContext.openFileOutput(Constants.EVENTS_HASH_FILE_NAME, MODE_PRIVATE)
+                .write(hash.toString().toByteArray())
+                Log.d("DATA SAVED","Hash json saved. Value: ${hash}")
+            }catch (ex:Exception){
+                Log.e("ERROR","Error saving events hash json. ${ex.toString()}")
+            }
         }
     }
 }
