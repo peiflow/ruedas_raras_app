@@ -16,8 +16,7 @@
     <string name="menu_send">Send</string>
     <string name="menu_qr_reader">LECTOR QR</string>
     <string name="menu_schedule">HORARIOS</string>
-    <string name="menu_temoto_hints">TEMOTO - PISTAS</string>
-    <string name="menu_temoto_guide">TEMOTO - INSTRUCCIONES</string>
+    <string name="menu_temoto_hints">JUEGO TEMOTO</string>
     <string name="menu_partners">COLABORADORES</string>
     <string name="menu_rr_face">RUEDAS RARAS</string>
     <string name="menu_ayto_face">AYTO. TORO</string>
@@ -44,5 +43,5 @@
 
     <!-- Hints activity -->
     <string name="title_activity_hints">PISTAS</string>
-
+    <string name="expl_txt">Pistas encontradas:</string>
 </resources>

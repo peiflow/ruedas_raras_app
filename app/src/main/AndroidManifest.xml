@@ -62,7 +62,6 @@
         </activity>
         <activity
                 android:name=".QrScanner"
-                android:label="@string/title_activity_qr_scanner"
                 android:parentActivityName=".MainActivity"
                 android:theme="@style/AppTheme.NoActionBar">
             <meta-data

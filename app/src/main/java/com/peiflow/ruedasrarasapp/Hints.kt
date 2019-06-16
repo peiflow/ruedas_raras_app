@@ -26,7 +26,7 @@ class Hints : AppCompatActivity() {
 
         val hintsList = Hint.getHints(this)
         for (hint in hintsList){
-            hintsStr = hint + "\r\n"+ "\r\n"
+            hintsStr +=hint +"\r\n"+ "\r\n"
         }
         tv_hints.text = hintsStr
         println(hintsStr)

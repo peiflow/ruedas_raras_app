@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -19,7 +20,7 @@ import kotlinx.android.synthetic.main.content_event_details.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class EventDetails : AppCompatActivity() , OnMapReadyCallback{
+class EventDetails : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var markers: MutableList<LatLng>
 
