@@ -3,10 +3,8 @@ package com.peiflow.ruedasrarasapp
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log
+import android.support.v7.app.AppCompatActivity
 import android.widget.Button
-import android.widget.TextView
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -14,11 +12,9 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.MarkerOptions
 import com.peiflow.ruedasrarasapp.models.EventData
 import com.peiflow.ruedasrarasapp.models.LatLng
-
+import com.peiflow.ruedasrarasapp.utils.DateTimeUtils
 import kotlinx.android.synthetic.main.app_bar.*
 import kotlinx.android.synthetic.main.content_event_details.*
-import java.text.SimpleDateFormat
-import java.util.*
 
 class EventDetails : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
@@ -32,7 +28,12 @@ class EventDetails : AppCompatActivity(), OnMapReadyCallback {
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
         toolbar.setNavigationOnClickListener {
-            startActivity(Intent(applicationContext, MainActivity::class.java))
+            startActivity(
+                Intent(
+                    applicationContext,
+                    MainActivity::class.java
+                )
+            )
             this.finish()
         }
 
@@ -51,6 +52,9 @@ class EventDetails : AppCompatActivity(), OnMapReadyCallback {
             openUrl.data = Uri.parse(evt.routeUrl)
             startActivity(openUrl)
         }
+//        mapFragment.view?.setOnFocusChangeListener { v, hasFocus ->
+//            Log.d("FOCUS", "$v FOCUS GAINED? $hasFocus")
+//        }
     }
 
     override fun onBackPressed() {
@@ -89,7 +93,7 @@ class EventDetails : AppCompatActivity(), OnMapReadyCallback {
             mMap.moveCamera(
                 CameraUpdateFactory.newLatLngZoom(
                     com.google.android.gms.maps.model.LatLng(lat, lon),
-                    10f
+                    17f
                 )
             )
         } else {
@@ -98,7 +102,7 @@ class EventDetails : AppCompatActivity(), OnMapReadyCallback {
                     com.google.android.gms.maps.model.LatLng(
                         markers[0].lat,
                         markers[0].lng
-                    ), 15f
+                    ), 17f
                 )
             )
         }
@@ -107,20 +111,13 @@ class EventDetails : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun processEventData(evt: EventData) {
-        val spanish = Locale("es", "ES")
-        val fmt = SimpleDateFormat("dd/MM/yyyy hh:mm:ss", spanish)
-        val date: Date = fmt.parse(evt.dateTime)
-        val fmtOut = SimpleDateFormat("EEEE dd/MM/yyyy", spanish)
-        val frmtDate: String = fmtOut.format(date)
-        val timeOut = SimpleDateFormat("hh:mm:ss", spanish)
-        val frmtTime: String = timeOut.format(date)
-
+        val frmtDate = DateTimeUtils.getSpanishLongDate(evt.dateTime!!)
+        val frmtTime = DateTimeUtils.getShortTime(evt.dateTime!!)
         desc_text.text = evt.description
         date_text.text = frmtDate.capitalize()
         time_text.text = frmtTime
         address_text.text = evt.address
         markers = evt.locations!!
-
         this.title = evt.name
     }
 }

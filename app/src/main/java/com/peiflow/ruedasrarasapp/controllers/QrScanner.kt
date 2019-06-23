@@ -1,6 +1,6 @@
 package com.peiflow.ruedasrarasapp
 
-import android.content.Context
+import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -15,8 +15,6 @@ import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.Detector
 import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
-import com.peiflow.ruedasrarasapp.MainActivity
-import com.peiflow.ruedasrarasapp.R
 import com.peiflow.ruedasrarasapp.models.Hint
 import kotlinx.android.synthetic.main.app_bar.*
 import kotlinx.android.synthetic.main.content_qr_scanner.*
@@ -39,16 +37,22 @@ class QrScanner : AppCompatActivity() {
         cameraView = findViewById(R.id.cameraView)
         cameraView.setZOrderMediaOverlay(true)
         holder = cameraView.holder
-        barcode = BarcodeDetector.Builder(this).setBarcodeFormats(Barcode.QR_CODE).build()
+        barcode = BarcodeDetector.Builder(this)
+            .setBarcodeFormats(Barcode.QR_CODE).build()
 
         if (!barcode.isOperational) {
-            Toast.makeText(applicationContext, "Couldn´t setup the detector", Toast.LENGTH_LONG).show()
+            Toast.makeText(
+                applicationContext,
+                "Couldn´t setup the detector",
+                Toast.LENGTH_LONG
+            ).show()
             this.finish()
         }
 
         startupCamera()
 
-        barcode.setProcessor(object : Detector.Processor<Barcode> {
+        barcode.setProcessor(object :
+            Detector.Processor<Barcode> {
             override fun release() {}
 
             override fun receiveDetections(detections: Detector.Detections<Barcode>) {
@@ -101,7 +105,7 @@ class QrScanner : AppCompatActivity() {
                 try {
                     if (ContextCompat.checkSelfPermission(
                             this@QrScanner,
-                            android.Manifest.permission.CAMERA
+                            Manifest.permission.CAMERA
                         ) == PackageManager.PERMISSION_GRANTED
                     ) {
                         cameraSource.start(cameraView.holder)

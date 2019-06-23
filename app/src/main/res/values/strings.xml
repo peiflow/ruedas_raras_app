@@ -41,7 +41,7 @@
     <string name="tab2">SAB. 27</string>
     <string name="tab3">DOM. 28</string>
 
-    <!-- Hints activity -->
+    <!-- TemotoHints activity -->
     <string name="title_activity_hints">PISTAS</string>
     <string name="expl_txt">Pistas encontradas:</string>
 </resources>

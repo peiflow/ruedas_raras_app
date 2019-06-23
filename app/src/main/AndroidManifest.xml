@@ -28,12 +28,15 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".Hints"
+                android:name=".TemotoHints"
                 android:label="@string/title_activity_hints"
                 android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".MainActivity"/>
+        </activity>
+        <activity android:name=".TemotoInstructionsPopup"
+                  android:theme="@style/AppTheme.NoActionBar.PopupStyle">
         </activity>
         <activity
                 android:name=".Cartel"
