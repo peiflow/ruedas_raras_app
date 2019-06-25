@@ -1,4 +1,4 @@
-package com.peiflow.ruedasrarasapp
+package com.peiflow.ruedasrarasapp.controllers
 
 import android.content.Intent
 import android.net.Uri
@@ -10,6 +10,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.MarkerOptions
+import com.peiflow.ruedasrarasapp.R
 import com.peiflow.ruedasrarasapp.models.EventData
 import com.peiflow.ruedasrarasapp.models.LatLng
 import com.peiflow.ruedasrarasapp.utils.DateTimeUtils

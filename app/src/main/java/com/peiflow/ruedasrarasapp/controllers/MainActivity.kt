@@ -1,4 +1,4 @@
-package com.peiflow.ruedasrarasapp
+package com.peiflow.ruedasrarasapp.controllers
 
 import android.Manifest
 import android.content.Intent
@@ -19,6 +19,7 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.LinearLayout
+import com.peiflow.ruedasrarasapp.*
 import com.peiflow.ruedasrarasapp.adapters.EventAdapter
 import com.peiflow.ruedasrarasapp.adapters.FirestoreManager
 import com.peiflow.ruedasrarasapp.models.EventData
@@ -27,12 +28,8 @@ import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity(),
     NavigationView.OnNavigationItemSelectedListener {
-    var REQUEST_CODE: Int = 100
     var PERMISSION_REQUEST: Int = 200
-
-    val firestoneManager: FirestoreManager =
-        FirestoreManager()
-    //var dbm: DatabaseManager = DatabaseManager()
+    val firestoneManager: FirestoreManager = FirestoreManager()
     var eventsList: MutableList<EventData> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,7 +57,6 @@ class MainActivity : AppCompatActivity(),
         }
 
         nav_view.setNavigationItemSelectedListener(this)
-        //dbm.ReadDatabase(this, eventsList)
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
@@ -74,16 +70,6 @@ class MainActivity : AppCompatActivity(),
 
             startActivity(Intent.createChooser(email, "Choose an Email client :"))
         }
-    }
-
-    override fun onStart() {
-        //setupRecyclerView()
-        super.onStart()
-    }
-
-    override fun onResume() {
-        //setupRecyclerView()
-        super.onResume()
     }
 
     fun eventItemClicked(eventItem: EventData) {
@@ -126,14 +112,14 @@ class MainActivity : AppCompatActivity(),
             }
             R.id.nav_schedule -> {
                 val intent = Intent(this, Schedule::class.java)
-                val eventsArray:Array<EventData> = eventsList.toTypedArray()
+                val eventsArray: Array<EventData> = eventsList.toTypedArray()
                 intent.putExtra("Events", eventsArray)
                 startActivity(intent)
             }
             R.id.nav_temoto_hints -> {
                 startActivity(Intent(this, TemotoHints::class.java))
             }
-            R.id.nav_partners ->{
+            R.id.nav_partners -> {
                 startActivity(Intent(this, Partners::class.java))
             }
             R.id.nav_rr_face -> {
@@ -155,10 +141,6 @@ class MainActivity : AppCompatActivity(),
     private fun checkPermissions() {
         val camPerm: Int =
             ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-        val gpsPerm: Int = ContextCompat.checkSelfPermission(
-            this,
-            Manifest.permission.ACCESS_FINE_LOCATION
-        )
         val readStoragePerm: Int =
             ContextCompat.checkSelfPermission(
                 this,
@@ -171,18 +153,13 @@ class MainActivity : AppCompatActivity(),
             )
         val internetPerm: Int =
             ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET)
-
         val permissions: Array<String> = arrayOf(
-            android.Manifest.permission.CAMERA,
-            android.Manifest.permission.ACCESS_FINE_LOCATION,
-            android.Manifest.permission.READ_EXTERNAL_STORAGE,
-            android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            android.Manifest.permission.INTERNET
+            Manifest.permission.CAMERA,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.INTERNET
         )
-
-
         if (camPerm != PackageManager.PERMISSION_GRANTED
-            || gpsPerm != PackageManager.PERMISSION_GRANTED
             || readStoragePerm != PackageManager.PERMISSION_GRANTED
             || writeStoragePerm != PackageManager.PERMISSION_GRANTED
             || internetPerm != PackageManager.PERMISSION_GRANTED
@@ -191,7 +168,7 @@ class MainActivity : AppCompatActivity(),
         }
     }
 
-    fun setupRecyclerView(events:MutableList<EventData>){
+    fun setupRecyclerView(events: MutableList<EventData>) {
         var recyclerView: RecyclerView = findViewById(R.id.rv_events)
         val linearLayout =
             LinearLayoutManager(this, LinearLayout.VERTICAL, false)

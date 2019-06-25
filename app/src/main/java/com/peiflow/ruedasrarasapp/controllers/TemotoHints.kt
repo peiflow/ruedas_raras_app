@@ -1,8 +1,9 @@
-package com.peiflow.ruedasrarasapp
+package com.peiflow.ruedasrarasapp.controllers
 
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.peiflow.ruedasrarasapp.R
 import com.peiflow.ruedasrarasapp.models.Hint
 import kotlinx.android.synthetic.main.activity_hints.*
 import kotlinx.android.synthetic.main.content_hints.*

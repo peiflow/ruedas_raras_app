@@ -1,8 +1,9 @@
-package com.peiflow.ruedasrarasapp
+package com.peiflow.ruedasrarasapp.controllers
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.DisplayMetrics
+import com.peiflow.ruedasrarasapp.R
 
 class TemotoInstructionsPopup : AppCompatActivity() {
 

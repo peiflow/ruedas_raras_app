@@ -1,4 +1,4 @@
-package com.peiflow.ruedasrarasapp
+package com.peiflow.ruedasrarasapp.controllers
 
 import android.Manifest
 import android.content.Intent
@@ -15,6 +15,7 @@ import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.Detector
 import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
+import com.peiflow.ruedasrarasapp.R
 import com.peiflow.ruedasrarasapp.models.Hint
 import kotlinx.android.synthetic.main.app_bar.*
 import kotlinx.android.synthetic.main.content_qr_scanner.*

@@ -5,15 +5,15 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".TemotoInstructionsPopup">
-    <ImageButton
+        tools:context=".controllers.TemotoInstructionsPopup">
+    <!--<ImageButton
             android:id="@+id/ib_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:background="@android:color/transparent"
-            android:src="@android:drawable/btn_dialog"/>
+            android:src="@android:drawable/btn_dialog"/>-->
     <ScrollView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true">
@@ -21,7 +21,8 @@
                 android:id="@+id/tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="This is a sample popup window."
-                android:padding="25sp"/>
+                android:text="@string/instructions"
+                android:padding="5sp"
+                android:textColor="@android:color/white"/>
     </ScrollView>
 </RelativeLayout>

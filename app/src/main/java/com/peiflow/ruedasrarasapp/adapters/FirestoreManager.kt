@@ -6,7 +6,7 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
-import com.peiflow.ruedasrarasapp.MainActivity
+import com.peiflow.ruedasrarasapp.controllers.MainActivity
 import com.peiflow.ruedasrarasapp.models.EventData
 
 class FirestoreManager {
