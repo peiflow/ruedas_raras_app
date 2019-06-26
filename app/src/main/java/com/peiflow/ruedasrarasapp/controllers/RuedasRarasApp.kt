@@ -1,24 +1,118 @@
 package com.peiflow.ruedasrarasapp.controllers
 
 import android.app.Application
-import com.google.firebase.firestore.FirebaseFirestore
+import android.content.ContentValues
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
+import android.util.Log
+import com.google.gson.Gson
+import com.google.gson.JsonSerializer
+import com.peiflow.ruedasrarasapp.adapters.FirestoreManager
+import com.peiflow.ruedasrarasapp.helpers.JsonHelper
+import com.peiflow.ruedasrarasapp.models.EventData
 import com.peiflow.ruedasrarasapp.models.Hint
-import com.google.firebase.firestore.FirebaseFirestoreSettings
-
-
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class RuedasRarasApp : Application() {
+    private var localDbEventHash: Long = 0
+    private var cloudDbEventHash: Long = 0
+    private lateinit var localDbEventsData: MutableList<EventData>
+    private lateinit var cloudDbEventsData: MutableList<EventData>
+    private lateinit var cloudDbRawEventsData: String
+
+    private lateinit var firestoreManager: FirestoreManager
 
     override fun onCreate() {
         super.onCreate()
-        val settings = FirebaseFirestoreSettings.Builder()
-            .setPersistenceEnabled(true)
-            .build()
-        FirebaseFirestore.getInstance().firestoreSettings = settings
+
+        setupDatabase()
+        initializeVariables()
 
         if(!Hint.checkIfFileExists(this.applicationContext))
             Hint.createFile(this.applicationContext)
         else
             Hint.getHints(this.applicationContext)
+
+        //TODO:
+        /*
+        * 1.-Check internet connection
+        *   2.1.-Internet OK
+        *     2.1.1.- Get hash from cloub through a delegate method
+        *     2.1.2.- Gel local hash
+        *     2.1.3.- Compare hashes
+        *     2.1.4.- If hashes are NOT equal
+        *         2.4.1.- Download database
+        *         2.4.5.- Store downloaded data into local storage
+        *   2.2.-Internet KO
+        *     2.2.1.- Check your internet collection message
+        *     2.2.2.- Use local data
+        * */
+
+        //check if local files exists
+        val filesExists: Boolean = JsonHelper.checkIfFilesExists(this)
+
+        if (!filesExists)
+            JsonHelper.createFiles(this, "", "")
+
+        //check internet connection
+        val cm:ConnectivityManager = this.applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
+
+        //Internet connection ok
+        if(activeNetwork != null && activeNetwork.isConnected){
+            //get local hash
+            localDbEventHash=  JsonHelper.getEventsHash(this)
+            //get cloud hash
+            GlobalScope.launch {
+                cloudDbEventHash = FirestoreManager().getSyncEventsHash()
+                checkHashes()
+            }
+        }
+
+//        //check if local files exists
+//        val filesExists: Boolean = JsonHelper.checkIfFilesExists(this)
+//
+//        if (!filesExists)
+//            JsonHelper.createFiles(this, "", "")
+//
+//        //Gets local and cloud hashes
+//        cloudDbEventHash = firestoreManager.getEventsHash(this.applicationContext)
+//        JsonHelper.getEventsHash(this)
+//
+//        checkHashes()
+    }
+
+    fun setCloudHash(hash:Long){
+        cloudDbEventHash = hash
+        Log.d("CLOUD HASH", "$cloudDbEventHash")
+
+        checkHashes()
+    }
+
+    private fun initializeVariables() {
+        localDbEventsData = mutableListOf()
+        cloudDbEventsData = mutableListOf()
+        cloudDbRawEventsData = ""
+    }
+
+    private fun setupDatabase() {
+        firestoreManager = FirestoreManager()
+    }
+
+
+    private fun checkHashes() {
+        Log.d(ContentValues.TAG, "LOCAL HASH: $localDbEventHash")
+        Log.d(ContentValues.TAG, "CLOUD HASH:  $cloudDbEventHash")
+
+        if (cloudDbEventHash != localDbEventHash) {
+            cloudDbEventsData = FirestoreManager().getSyncEventsList()
+            JsonHelper.saveHash(this as Application, cloudDbEventHash)
+            JsonHelper.saveRawEventsData(this as Application, cloudDbEventsData)
+        } else {
+            Log.d(ContentValues.TAG, "HASHES IGUALES")
+        }
     }
 }

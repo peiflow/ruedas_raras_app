@@ -7,8 +7,13 @@
           "lng": -5.390777
         }
       ],
+<<<<<<< HEAD
+      "dateTime": "26/08/2019 18:00:00",
+      "description": "Apertura de inscripciones del viernes hasta las 22:00 horas. Con cerveza de bienvenida o vino ofrecido por el bar La Colegiata",
+=======
       "dateTime": "26/07/2019 18:00:00",
       "description": "Apertura de inscripciones del viernes hasta las 22:00 horas. Con cerveza de bienvenida",
+>>>>>>> origin/develop
       "address": "Palacio Condes de Requena",
       "name": "Inscripciones",
       "routeUrl": "https://tinyurl.com/y4h2juje"
@@ -20,8 +25,13 @@
           "lng": -5.394448
         }
       ],
+<<<<<<< HEAD
+      "dateTime": "26/08/2019 21:00:00",
+      "description": "Cena ofrecida por el bar La Colegiata. El plato servido será carrilleras al Tinto de Toro. Bebidas no incluidas.",
+=======
       "dateTime": "26/07/2019 21:00:00",
       "description": "Cena y vino de bienvienida ofrecidos por el bar La Colegiata. El plato servido será carrilleras al Tinto de Toro. Bebidas no incluidas.",
+>>>>>>> origin/develop
       "address": "Plaza de la Colegiata, 12",
       "name": "Cena",
       "routeUrl": "https://tinyurl.com/y62kzedw"
@@ -33,7 +43,11 @@
           "lng": -5.394480
         }
       ],
+<<<<<<< HEAD
+      "dateTime": "26/08/2019 23:00:00",
+=======
       "dateTime": "26/07/2019 23:00:00",
+>>>>>>> origin/develop
       "description": "Concierto del grupo “Lokomotores” ofrecido por los bares Play y El Dorado.",
       "address": "Calle Trasalfóndiga",
       "name": "Concierto",
@@ -46,8 +60,13 @@
           "lng": -5.390777
         }
       ],
+<<<<<<< HEAD
+      "dateTime": "27/08/2019 09:00:00",
+      "description": "Apertura de inscripciones del sábado. Inicio del juego-concurso Temoto. Puedes participar con esta app!!",
+=======
       "dateTime": "27/07/2019 09:00:00",
       "description": "Apertura de inscripciones del sábado. Cerveza de bienvenida. Inicio del juego-concurso Temoto. Puedes participar con esta app!!",
+>>>>>>> origin/develop
       "address": "Palacio Condes de Requena",
       "name": "Inscripciones",
       "routeUrl": "https://tinyurl.com/y62kzedw"
@@ -59,7 +78,11 @@
           "lng": -5.393838
         }
       ],
+<<<<<<< HEAD
+      "dateTime": "27/08/2019 09:00:00",
+=======
       "dateTime": "27/07/2019 09:00:00",
+>>>>>>> origin/develop
       "description": "Desayuno ofrecido por la cafetería El Imperial.",
       "address": "Plaza Mayor nº 19",
       "name": "Desayuno",
@@ -72,8 +95,13 @@
           "lng": -5.393818
         }
       ],
+<<<<<<< HEAD
+      "dateTime": "27/08/2019 11:00:00",
+      "description": "Ruta con pincho y visita al castillo de Tiedra. Salida de Plaza Mayor. Regreso libre.",
+=======
       "dateTime": "27/07/2019 11:00:00",
       "description": "Ruta con pincho en el bar El Molino y visita al castillo de Tiedra. Salida de Plaza Mayor. Regreso libre. Total: 85 km.",
+>>>>>>> origin/develop
       "address": "Plaza Mayor",
       "name": "Ruta",
       "routeUrl": "https://tinyurl.com/y3r7gjzf"
@@ -85,8 +113,13 @@
           "lng": -5.390992
         }
       ],
+<<<<<<< HEAD
+      "dateTime": "27/08/2019 15:00:00",
+      "description": "Comida en Hotel Mª de Molina. ",
+=======
       "dateTime": "27/07/2019 15:00:00",
       "description": "Comida en Hotel Mª de Molina. Menú: Arroz a la zamorana, Codillo, Postre.",
+>>>>>>> origin/develop
       "address": "Plaza Delhy Tejero, 1",
       "name": "Comida",
       "routeUrl": "https://tinyurl.com/y3h2rljg"
@@ -98,8 +131,13 @@
           "lng": -5.383981
         }
       ],
+<<<<<<< HEAD
+      "dateTime": "27/08/2019 16:00:00",
+      "description": "Entrada a piscina gratuita. ",
+=======
       "dateTime": "27/07/2019 16:00:00",
       "description": "Entrada a piscina gratuita.",
+>>>>>>> origin/develop
       "address": "Camino Ruales, 2",
       "name": "Piscina",
       "routeUrl": "https://tinyurl.com/y4l2xhja"
@@ -111,7 +149,11 @@
           "lng": -5.397923
         }
       ],
+<<<<<<< HEAD
+      "dateTime": "27/08/2019 19:00:00",
+=======
       "dateTime": "27/07/2019 19:00:00",
+>>>>>>> origin/develop
       "description": "Concierto “El Duende Eléctrico” ofrecido por los bares \"Bar El Último de la Fila\" y \"Bar Jayda\".",
       "address": "Av. Ronda de Corredera, 55",
       "name": "Concierto",
@@ -124,7 +166,11 @@
           "lng": -5.397006
         }
       ],
+<<<<<<< HEAD
+      "dateTime": "27/08/2019 20:30:00",
+=======
       "dateTime": "27/07/2019 20:30:00",
+>>>>>>> origin/develop
       "description": "Exhibición de trial de Miguel Ángel Jiménez ofrecida por los bares \"Bar El Último de la Fila\" y \"Bar Jayda\".",
       "address": "Calle Ronda de Capuchinos",
       "name": " Exhibición Trial",
@@ -133,6 +179,17 @@
     {
       "locations": [
         {
+<<<<<<< HEAD
+          "lat": 41.526595,
+          "lng": -5.397006
+        }
+      ],
+      "dateTime": "27/08/2019 22:15:00",
+      "description": "Desfile de antorchas en honor a los compañeros caídos.",
+      "address": "Calle Ronda de Capuchinos",
+      "name": "Desfile de antorchas",
+      "routeUrl": "https://tinyurl.com/yy98tqxx"
+=======
           "lat": 41.526953,
           "lng": -5.397620
         }
@@ -142,6 +199,7 @@
       "address": "Calle Ronda de Corredera",
       "name": "Desfile de antorchas",
       "routeUrl": "https://tinyurl.com/yyqupnd3"
+>>>>>>> origin/develop
     },
     {
       "locations": [
@@ -150,8 +208,13 @@
           "lng": -5.393818
         }
       ],
+<<<<<<< HEAD
+      "dateTime": "27/08/2019 22:30:00",
+      "description": "Cena de pinchos por los bares colaboradores de la Plaza Mayor. Bebidas no incluidas. ",
+=======
       "dateTime": "27/07/2019 22:30:00",
       "description": "Cena de pinchos por los bares colaboradores de la Plaza Mayor. Bebidas no incluidas.",
+>>>>>>> origin/develop
       "address": "Plaza Mayor",
       "name": "Cena",
       "routeUrl": "https://tinyurl.com/y64by6cy"
@@ -159,6 +222,8 @@
     {
       "locations": [
         {
+<<<<<<< HEAD
+=======
           "lat": 41.522610,
           "lng": -5.389258
         }
@@ -172,12 +237,18 @@
     {
       "locations": [
         {
+>>>>>>> origin/develop
           "lat": 41.521052,
           "lng": -5.393818
         }
       ],
+<<<<<<< HEAD
+      "dateTime": "28/08/2019 00:00:00",
+      "description": " Macroconcierto de “Xeria” y “Last days of Eden”  en la Plaza Mayor ofrecido por el Excmo. Ayto. de Toro. ",
+=======
       "dateTime": "28/07/2019 00:00:00",
       "description": " Macroconcierto de “Xeria” y “Last days of Eden”  en la Plaza Mayor ofrecido por el Excmo. Ayto. de Toro.",
+>>>>>>> origin/develop
       "address": "Plaza Mayor",
       "name": "Macroconcierto",
       "routeUrl": "https://tinyurl.com/y64by6cy"
@@ -189,7 +260,11 @@
           "lng": -5.393715
         }
       ],
+<<<<<<< HEAD
+      "dateTime": "28/08/2019 10:00:00",
+=======
       "dateTime": "28/07/2019 10:00:00",
+>>>>>>> origin/develop
       "description": "Desayuno ofrecido por el bar La Comedia.",
       "address": "Plaza Mayor, 13",
       "name": "Desayuno",
@@ -202,8 +277,13 @@
           "lng": -5.393818
         }
       ],
+<<<<<<< HEAD
+      "dateTime": "28/08/2019 11:00:00",
+      "description": "Ruta a Venialbo con pincho. Salida Plaza Mayor. Vuelta libre.",
+=======
       "dateTime": "28/07/2019 11:00:00",
       "description": "Ruta a Venialbo con pincho. Salida Plaza Mayor. Vuelta libre. Total: 70 km.",
+>>>>>>> origin/develop
       "address": "Plaza Mayor",
       "name": "Ruta",
       "routeUrl": "https://tinyurl.com/y2cm9kqe"
@@ -215,8 +295,13 @@
           "lng": -5.378674
         }
       ],
+<<<<<<< HEAD
+      "dateTime": "28/08/2019 15:00:00",
+      "description": "Paella ofrecida por Bodega Latarce. ",
+=======
       "dateTime": "28/07/2019 15:00:00",
       "description": "Paella ofrecida por Bodega Latarce. Entrega de agradecimientos y premio al ganador del juego Temoto.",
+>>>>>>> origin/develop
       "address": "Ctra. Medina de Rioseco, km 1",
       "name": "Comida",
       "routeUrl": "https://tinyurl.com/y6jv9pgv"
@@ -228,8 +313,13 @@
           "lng": -5.378674
         }
       ],
+<<<<<<< HEAD
+      "dateTime": "28/08/2019 17:00:00",
+      "description": "Monólogo a cargo de...",
+=======
       "dateTime": "28/07/2019 17:00:00",
       "description": "Monólogo a cargo de Juan Sinde.",
+>>>>>>> origin/develop
       "address": "Ctra. Medina de Rioseco, km 1",
       "name": "Monólogo",
       "routeUrl": "https://tinyurl.com/y6jv9pgv"
@@ -241,12 +331,21 @@
           "lng": -5.378383
         }
       ],
+<<<<<<< HEAD
+      "dateTime": "28/08/2019 18:30:00",
+      "description": "Sorteo de obsequios, entrega de premios y despedida.",
+=======
       "dateTime": "28/07/2019 18:30:00",
       "description": "Sorteo de obsequios y despedida.",
+>>>>>>> origin/develop
       "address": "Ctra. Medina de Rioseco, km 1",
       "name": "Sorteo y premios",
       "routeUrl": "https://tinyurl.com/y6jv9pgv"
     }
+<<<<<<< HEAD
+  ]
+=======
   ],
   "events_hash":{"uFIMmT9cKYrgSPH4tDoJ":{"hash":1968614523}}
+>>>>>>> origin/develop
 }

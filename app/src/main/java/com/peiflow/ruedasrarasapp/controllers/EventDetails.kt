@@ -50,7 +50,8 @@ class EventDetails : AppCompatActivity(), OnMapReadyCallback {
 
         opnMapsBtn.setOnClickListener {
             val openUrl = Intent(Intent.ACTION_VIEW)
-            openUrl.data = Uri.parse(evt.routeUrl)
+            if(evt.routeUrl != null && evt.routeUrl != "")
+                openUrl.data = Uri.parse(evt.routeUrl)
             startActivity(openUrl)
         }
 //        mapFragment.view?.setOnFocusChangeListener { v, hasFocus ->
