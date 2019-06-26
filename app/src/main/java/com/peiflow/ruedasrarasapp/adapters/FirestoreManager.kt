@@ -1,4 +1,4 @@
-package com.peiflow. ruedasrarasapp.adapters
+package com.peiflow.ruedasrarasapp.adapters
 
 import android.content.Context
 import android.util.Log

@@ -16,8 +16,7 @@
     <string name="menu_send">Send</string>
     <string name="menu_qr_reader">LECTOR QR</string>
     <string name="menu_schedule">HORARIOS</string>
-    <string name="menu_temoto_hints">TEMOTO - PISTAS</string>
-    <string name="menu_temoto_guide">TEMOTO - INSTRUCCIONES</string>
+    <string name="menu_temoto_hints">JUEGO TEMOTO</string>
     <string name="menu_partners">COLABORADORES</string>
     <string name="menu_rr_face">RUEDAS RARAS</string>
     <string name="menu_ayto_face">AYTO. TORO</string>
@@ -42,7 +41,26 @@
     <string name="tab2">SAB. 27</string>
     <string name="tab3">DOM. 28</string>
 
-    <!-- Hints activity -->
+    <!-- TemotoHints activity -->
     <string name="title_activity_hints">PISTAS</string>
-
+    <string name="expl_txt">Pistas encontradas:</string>
+    <string name="instructions">
+        En la relación de colaboradores que se indica a continuación, encontrarás códigos “BIDI” o QR, que deberás escanear para obtener las pistas. Busca y escanea todas las pistas! (6 en total)
+        \n\n
+        Cuando termines y resuelvas las pistas, deposita en la caja del concurso, situada en la Cafetería Imperial, el boleto de participación (que encontrarás jugando). Pon tu nombre, teléfono y el código de números de las pistas. Participa en el sorteo de una noche en el Hotel María de Molina.
+        \n\n
+        Notas e instrucciones del juego: \n
+        •	El boleto de participación, será un símil de un billete de 500 €, que será entregado en uno de los establecimientos colaboradores con el juego (incluido en una de las pistas) \n
+        •	Solo podrás completar el código si escaneas todas las pistas \n
+        •	El resultado será una serie de 8 números (##-##-##-##) \n
+        •	Indicar, a bolígrafo, en el boleto (Billete): Nombre, Teléfono y el Resultado
+        \n\n
+        Establecimientos colaboradores (donde encontrarás los códigos “Qr” con las pistas): \n
+        •	Cafetería Imperial (Pista 1) \n
+        •	Bar El Último de la Fila (Pista 2) \n
+        •	Hotel María de Molina (Pista 3) \n
+        •	Bar Restaurante La Colegiata (Pista 4) \n
+        •	Bar Jayda (Pista 5) \n
+        •	Bar La Comedia (Pista 6) \n
+    </string>
 </resources>

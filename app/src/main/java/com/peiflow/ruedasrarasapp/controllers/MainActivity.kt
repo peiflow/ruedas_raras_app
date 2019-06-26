@@ -23,9 +23,7 @@ import kotlinx.android.synthetic.main.content_main.*
 import android.R.id.message
 import android.support.v7.widget.RecyclerView
 import android.widget.LinearLayout
-import android.widget.Toast
 import com.peiflow.ruedasrarasapp.adapters.FirestoreManager
-import com.peiflow.ruedasrarasapp.helpers.JsonHelper
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -56,7 +54,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         val toggle = ActionBarDrawerToggle(
-            this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+            this,
+            drawer_layout,
+            toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
         )
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
@@ -80,6 +82,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             startActivity(Intent.createChooser(email, "Choose an Email client :"))
         }
+    }
+
+    override fun onStart() {
+        //setupRecyclerView()
+        super.onStart()
+    }
+
+    override fun onResume() {
+        //setupRecyclerView()
+        super.onResume()
     }
 
     fun eventItemClicked(eventItem: EventData) {
@@ -122,7 +134,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_schedule -> {
                 val intent = Intent(this, Schedule::class.java)
-                val eventsArray: Array<EventData> = eventsList.toTypedArray()
+                val eventsArray:Array<EventData> = eventsList.toTypedArray()
                 intent.putExtra("Events", eventsArray)
                 startActivity(intent)
             }
@@ -149,25 +161,27 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun checkPermissions() {
-        val camPerm: Int = ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
-        val gpsPerm: Int = ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
+        val camPerm: Int =
+            ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
         val readStoragePerm: Int =
-            ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
+            ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            )
         val writeStoragePerm: Int =
-            ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-        val internetPerm: Int = ContextCompat.checkSelfPermission(this, android.Manifest.permission.INTERNET)
-
+            ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+            )
+        val internetPerm: Int =
+            ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET)
         val permissions: Array<String> = arrayOf(
-            android.Manifest.permission.CAMERA,
-            android.Manifest.permission.ACCESS_FINE_LOCATION,
-            android.Manifest.permission.READ_EXTERNAL_STORAGE,
-            android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            android.Manifest.permission.INTERNET
+            Manifest.permission.CAMERA,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.INTERNET
         )
-
-
         if (camPerm != PackageManager.PERMISSION_GRANTED
-            || gpsPerm != PackageManager.PERMISSION_GRANTED
             || readStoragePerm != PackageManager.PERMISSION_GRANTED
             || writeStoragePerm != PackageManager.PERMISSION_GRANTED
             || internetPerm != PackageManager.PERMISSION_GRANTED
@@ -176,7 +190,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-    fun setupRecyclerView(events: MutableList<EventData>) {
+    fun setupRecyclerView(events:MutableList<EventData>){
         var recyclerView: RecyclerView = findViewById(R.id.rv_events)
         val linearLayout = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         val adapter = EventAdapter(events.toList(), this::eventItemClicked)

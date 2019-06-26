@@ -5,227 +5,170 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent">
 
-    <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                              android:id="@+id/guideline4"
-                                              android:orientation="vertical"
-                                              app:layout_constraintGuide_percent="0.5"/>
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="0dp" app:srcCompat="@drawable/logo_amaq"
-                android:id="@+id/ib_amaq"
-                android:adjustViewBounds="false" android:scaleType="centerCrop"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/guideline4"
-                android:layout_marginRight="8dp" android:background="@android:color/transparent"
-                android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/ib_ballesteros"
-                app:layout_constraintDimensionRatio="1:1"/>
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="0dp" app:srcCompat="@drawable/logo_ballesteros"
-                android:id="@+id/ib_ballesteros"
-                app:layout_constraintTop_toBottomOf="@+id/ib_amaq" android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp" android:scaleType="centerCrop"
-                android:layout_marginRight="8dp"
-                android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/guideline4"
-                android:background="@android:color/transparent"
-                app:layout_constraintDimensionRatio="1:1" android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/ib_cepsa"/>
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="0dp" app:srcCompat="@drawable/logo_cepsa"
-                android:id="@+id/ib_cepsa" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/ib_ballesteros" app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
-                android:layout_marginRight="8dp" android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline4" android:scaleType="centerCrop"
-                app:layout_constraintDimensionRatio="h,1:1" android:background="@android:color/transparent"
-                android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/ib_dorado"/>
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="0dp" app:srcCompat="@drawable/logo_dorado"
-                android:id="@+id/ib_dorado"
-                app:layout_constraintTop_toBottomOf="@+id/ib_cepsa" android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp" app:layout_constraintDimensionRatio="1:1"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline4" android:layout_marginRight="8dp"
-                android:scaleType="centerCrop" android:background="@android:color/transparent"
-                android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/ib_jayda"/>
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="0dp" app:srcCompat="@drawable/logo_jayda"
-                android:id="@+id/ib_jayda" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/ib_dorado" app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginRight="8dp" android:layout_marginEnd="8dp" android:scaleType="centerCrop"
-                android:background="@android:color/transparent" app:layout_constraintDimensionRatio="1:1"
-                android:layout_marginBottom="8dp" app:layout_constraintEnd_toStartOf="@+id/guideline4"/>
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="0dp" app:srcCompat="@drawable/logo_noales"
-                android:id="@+id/ib_noales" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/ib_jayda" app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginRight="8dp" android:layout_marginEnd="8dp" android:scaleType="centerCrop"
-                android:background="@android:color/transparent" app:layout_constraintDimensionRatio="1:1"
-                android:layout_marginBottom="8dp" app:layout_constraintEnd_toStartOf="@+id/guideline4"/>
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="0dp" app:srcCompat="@drawable/logo_paucar"
-                android:id="@+id/ib_paucar" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/ib_noales" app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginRight="8dp" android:layout_marginEnd="8dp" android:scaleType="centerCrop"
-                android:background="@android:color/transparent" app:layout_constraintDimensionRatio="1:1"
-                android:layout_marginBottom="8dp" app:layout_constraintEnd_toStartOf="@+id/guideline4"/>
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="0dp" app:srcCompat="@drawable/logo_polo"
-                android:id="@+id/ib_polo" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/ib_paucar" app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginRight="8dp" android:layout_marginEnd="8dp" android:scaleType="centerCrop"
-                android:background="@android:color/transparent" app:layout_constraintDimensionRatio="1:1"
-                android:layout_marginBottom="8dp" app:layout_constraintEnd_toStartOf="@+id/guideline4"/>
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="0dp" app:srcCompat="@drawable/logo_tecnotaller"
-                android:id="@+id/ib_tecnotaller" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/ib_polo" app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginRight="8dp" android:layout_marginEnd="8dp" android:scaleType="centerCrop"
-                android:background="@android:color/transparent" app:layout_constraintDimensionRatio="1:1"
-                android:layout_marginBottom="8dp" app:layout_constraintEnd_toStartOf="@+id/guideline4"/>
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="0dp" app:srcCompat="@drawable/logo_utlimo_fila"
-                android:id="@+id/ib_ultimo" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/ib_tecnotaller" app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginRight="8dp" android:layout_marginEnd="8dp" android:scaleType="centerCrop"
-                android:background="@android:color/transparent" app:layout_constraintDimensionRatio="1:1"
-                android:layout_marginBottom="8dp" app:layout_constraintEnd_toStartOf="@+id/guideline4"/>
-
-
-        <!-- Right column -->
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="0dp" app:srcCompat="@drawable/logo_ayto"
-                android:id="@+id/ib_ayto"
-                app:layout_constraintStart_toStartOf="@+id/guideline4" android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginRight="8dp"
-                android:layout_marginEnd="8dp" android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
-                android:scaleType="centerCrop"
-                app:layout_constraintDimensionRatio="1:1" android:background="@android:color/transparent"
-                android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/ib_cajarural"/>
-
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="0dp" app:srcCompat="@drawable/logo_caja_rural"
-                android:id="@+id/ib_cajarural" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/ib_ayto" app:layout_constraintStart_toEndOf="@+id/guideline4"
-                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginRight="8dp" android:layout_marginEnd="8dp"
-                app:layout_constraintDimensionRatio="1:1" android:background="@android:color/transparent"
-                android:scaleType="centerCrop" app:layout_constraintHorizontal_bias="1.0"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/ib_colegiata"/>
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="0dp" app:srcCompat="@drawable/logo_colegiata"
-                android:id="@+id/ib_colegiata"
-                app:layout_constraintTop_toBottomOf="@+id/ib_cajarural"
-                app:layout_constraintStart_toStartOf="@+id/guideline4" android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginRight="8dp"
-                android:layout_marginEnd="8dp" android:background="@android:color/transparent"
-                android:scaleType="centerCrop" app:layout_constraintDimensionRatio="1:1"
-                android:layout_marginTop="8dp" android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/ib_elocas"/>
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="0dp" app:srcCompat="@drawable/logo_elocas"
-                android:id="@+id/ib_elocas" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/ib_colegiata" android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@+id/guideline4"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintDimensionRatio="1:1" android:scaleType="centerCrop"
-                android:background="@android:color/transparent" android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/ib_latarce"/>
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="0dp" app:srcCompat="@drawable/logo_latarce"
-                android:id="@+id/ib_latarce" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/ib_elocas" android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@+id/guideline4"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintDimensionRatio="1:1" android:scaleType="centerCrop"
-                android:layout_marginBottom="8dp" android:background="@android:color/transparent"/>
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="0dp" app:srcCompat="@drawable/logo_paintball"
-                android:id="@+id/ib_paintball" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/ib_latarce" android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@+id/guideline4"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintDimensionRatio="1:1" android:scaleType="centerCrop"
-                android:layout_marginBottom="8dp" android:background="@android:color/transparent"/>
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="0dp" app:srcCompat="@drawable/logo_play"
-                android:id="@+id/ib_play" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/ib_paintball" android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@+id/guideline4"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintDimensionRatio="1:1" android:scaleType="centerCrop"
-                android:layout_marginBottom="8dp" android:background="@android:color/transparent"/>
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="0dp" app:srcCompat="@drawable/logo_reyes_catolicos"
-                android:id="@+id/ib_reyes" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/ib_play" android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@+id/guideline4"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintDimensionRatio="1:1" android:scaleType="centerCrop"
-                android:layout_marginBottom="8dp" android:background="@android:color/transparent"/>
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="0dp" app:srcCompat="@drawable/logo_torreduero"
-                android:id="@+id/ib_torreduero" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/ib_reyes" android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@+id/guideline4"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintDimensionRatio="1:1" android:scaleType="centerCrop"
-                android:layout_marginBottom="8dp" android:background="@android:color/transparent"/>
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="0dp" app:srcCompat="@drawable/logo_vdiez"
-                android:id="@+id/ib_vdiez" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/ib_torreduero" android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@+id/guideline4"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintDimensionRatio="1:1" android:scaleType="centerCrop"
-                android:layout_marginBottom="8dp" android:background="@android:color/transparent"/>
-    </android.support.constraint.ConstraintLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical">
+        <ImageButton  android:id="@+id/ib_ajaba"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_ajaba"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/white" android:scaleType="fitCenter"/>
+        <ImageButton android:id="@+id/ib_amaq"
+                     android:layout_width="250dp"
+                     android:layout_height="250dp" app:srcCompat="@drawable/logo_amaq"
+                     android:clickable="true" android:layout_gravity="center"
+                     android:layout_marginTop="10dp"
+                     android:background="@android:color/black" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_ayto"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_ayto"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/black" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_ballesteros"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_ballesteros"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/black" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_cajarural"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_caja_rural"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/white" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_cepsa"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_cepsa"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/black" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_colegiata"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_colegiata"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/white" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_dorado"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_dorado"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/white" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_elocas"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_elocas"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/white" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_gonzalez"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_gonzalez_higuero"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/white" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_heinken"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_heineken"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/white" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_jayda"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_jayda"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/white" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_latarce"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_latarce"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/black" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_noales"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_noales"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/black" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_oportunidadestic"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_oportunidadestic2"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/white" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_paintball"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_paintball"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/black" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_paucar"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_paucar"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/white" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_pd"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_pd"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/white" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_play"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_play"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/black" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_polo"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_polo"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/black" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_protcivil"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_proteccion_civil"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/white" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_relo"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_relo_2"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/white" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_reyes"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_reyes_catolicos"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/black" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_tecnotaller"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_tecnotaller"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/white" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_torreduero"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_torreduero"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/white" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_ultimo"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_ultimo_fila"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/white" android:scaleType="fitCenter"/>
+        <ImageButton  android:id="@+id/ib_vdiez"
+                      android:layout_width="250dp"
+                      android:layout_height="250dp" app:srcCompat="@drawable/logo_vdiez"
+                      android:clickable="true" android:layout_gravity="center"
+                      android:layout_marginTop="10dp"
+                      android:background="@android:color/white" android:scaleType="fitCenter"/>
+    </LinearLayout>
 </ScrollView>

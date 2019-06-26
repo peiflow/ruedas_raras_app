@@ -1,15 +1,13 @@
-package com.peiflow.ruedasrarasapp
+package com.peiflow.ruedasrarasapp.controllers
 
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.view.KeyEvent
+import com.peiflow.ruedasrarasapp.R
 import com.peiflow.ruedasrarasapp.adapters.EventAdapter
 import com.peiflow.ruedasrarasapp.models.EventData
-import kotlinx.android.synthetic.main.activity_schedule.*
-import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.content_schedule.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -19,7 +17,7 @@ class Schedule : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_schedule)
-        setSupportActionBar(toolbar)
+        //setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
@@ -45,9 +43,24 @@ class Schedule : AppCompatActivity() {
     }
 
     private fun resetBtns()    {
-        tabBtn1.setBackgroundColor(ContextCompat.getColor(this, R.color.primaryDarkColor))
-        tabBtn2.setBackgroundColor(ContextCompat.getColor(this, R.color.primaryDarkColor))
-        tabBtn3.setBackgroundColor(ContextCompat.getColor(this, R.color.primaryDarkColor))
+        tabBtn1.setBackgroundColor(
+            ContextCompat.getColor(
+                this,
+                R.color.primaryDarkColor
+            )
+        )
+        tabBtn2.setBackgroundColor(
+            ContextCompat.getColor(
+                this,
+                R.color.primaryDarkColor
+            )
+        )
+        tabBtn3.setBackgroundColor(
+            ContextCompat.getColor(
+                this,
+                R.color.primaryDarkColor
+            )
+        )
     }
 
     private fun eventItemClicked(eventItem: EventData) {
@@ -95,8 +108,15 @@ class Schedule : AppCompatActivity() {
                 resetBtns()
                 tabBtn2.isChecked = false
                 tabBtn3.isChecked = false
-                tabBtn1.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryColor))
-                schedule_rv_events.adapter = EventAdapter(filterEvents(0), { eventItem: EventData -> eventItemClicked(eventItem) })
+                tabBtn1.setBackgroundColor(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.secondaryColor
+                    )
+                )
+                schedule_rv_events.adapter = EventAdapter(
+                    filterEvents(0),
+                    { eventItem: EventData -> eventItemClicked(eventItem) })
             }
         }
         tabBtn2.setOnCheckedChangeListener{ _, isChecked ->
@@ -104,8 +124,15 @@ class Schedule : AppCompatActivity() {
                 resetBtns()
                 tabBtn1.isChecked = false
                 tabBtn3.isChecked = false
-                tabBtn2.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryColor))
-                schedule_rv_events.adapter = EventAdapter(filterEvents(1), { eventItem: EventData -> eventItemClicked(eventItem) })
+                tabBtn2.setBackgroundColor(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.secondaryColor
+                    )
+                )
+                schedule_rv_events.adapter = EventAdapter(
+                    filterEvents(1),
+                    { eventItem: EventData -> eventItemClicked(eventItem) })
             }
         }
         tabBtn3.setOnCheckedChangeListener{ _, isChecked ->
@@ -113,8 +140,15 @@ class Schedule : AppCompatActivity() {
                 resetBtns()
                 tabBtn1.isChecked = false
                 tabBtn2.isChecked = false
-                tabBtn3.setBackgroundColor(ContextCompat.getColor(this, R.color.secondaryColor))
-                schedule_rv_events.adapter = EventAdapter(filterEvents(2), { eventItem: EventData -> eventItemClicked(eventItem) })
+                tabBtn3.setBackgroundColor(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.secondaryColor
+                    )
+                )
+                schedule_rv_events.adapter = EventAdapter(
+                    filterEvents(2),
+                    { eventItem: EventData -> eventItemClicked(eventItem) })
             }
         }
     }

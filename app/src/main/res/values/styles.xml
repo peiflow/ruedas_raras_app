@@ -49,10 +49,16 @@
         <item name="android:textColorPrimary">@android:color/white</item>
         <item name="android:textColorSecondary">@android:color/white</item>
     </style>
-
     <style name="ToolbarTitleStyle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">30sp</item>
         <item name="android:fontFamily">@font/impact_regular_font</item>
         <item name="android:textColor">@color/secondaryColor</item>
+    </style>
+
+    <!-- Popup style -->
+    <style name="AppTheme.NoActionBar.PopupStyle">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:background">@color/primaryColor</item>
     </style>
 </resources>

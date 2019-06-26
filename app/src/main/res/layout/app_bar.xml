@@ -9,5 +9,4 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
         app:titleTextAppearance="@style/ToolbarTitleStyle"
         android:theme="@style/ToolBarStyle">
-
 </android.support.v7.widget.Toolbar>

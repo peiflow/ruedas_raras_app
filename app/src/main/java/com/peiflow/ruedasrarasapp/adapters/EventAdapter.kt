@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import com.google.common.io.Resources
 import com.peiflow.ruedasrarasapp.R
 import com.peiflow.ruedasrarasapp.models.EventData
+import com.peiflow.ruedasrarasapp.utils.DateTimeUtils
 import com.peiflow.ruedasrarasapp.utils.ImageUtils
 import kotlinx.android.synthetic.main.event_list_item.view.*
 import java.lang.StringBuilder
@@ -41,16 +42,8 @@ class EventAdapter (val eventsList: List<EventData>, val clickListener: (EventDa
         fun bind( event: EventData, clickListener: (EventData) -> Unit) {
             itemView.event_list_item_linear_layout.setOnClickListener{clickListener(event)}
             itemView.tv_event_item_name.text = event.name
-            itemView.tv_event_item_datetime.text = convertDateTimeFormat(event.dateTime!!)
+            itemView.tv_event_item_datetime.text = DateTimeUtils.convertDateTimeFormat(event.dateTime!!)
             itemView.setOnClickListener { clickListener(event) }
-        }
-
-        private fun convertDateTimeFormat(dateTime:String):String{
-            val fmt = SimpleDateFormat("dd/MM/yyyy HH:mm:ss")
-            val fmt2 = SimpleDateFormat("dd/MM/yyyy HH:mm")
-            var date: Date
-            date = fmt.parse(dateTime)
-            return fmt2.format(date)
         }
     }
 }
