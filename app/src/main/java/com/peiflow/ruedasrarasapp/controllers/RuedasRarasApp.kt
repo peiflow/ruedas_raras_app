@@ -6,15 +6,13 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.util.Log
-import com.google.gson.Gson
-import com.google.gson.JsonSerializer
 import com.peiflow.ruedasrarasapp.adapters.FirestoreManager
 import com.peiflow.ruedasrarasapp.helpers.JsonHelper
+import com.peiflow.ruedasrarasapp.helpers.NetworkHelper
 import com.peiflow.ruedasrarasapp.models.EventData
 import com.peiflow.ruedasrarasapp.models.Hint
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 class RuedasRarasApp : Application() {
     private var localDbEventHash: Long = 0
@@ -31,12 +29,11 @@ class RuedasRarasApp : Application() {
         setupDatabase()
         initializeVariables()
 
-        if(!Hint.checkIfFileExists(this.applicationContext))
+        if (!Hint.checkIfFileExists(this.applicationContext))
             Hint.createFile(this.applicationContext)
         else
             Hint.getHints(this.applicationContext)
 
-        //TODO:
         /*
         * 1.-Check internet connection
         *   2.1.-Internet OK
@@ -57,35 +54,19 @@ class RuedasRarasApp : Application() {
         if (!filesExists)
             JsonHelper.createFiles(this, "", "")
 
-        //check internet connection
-        val cm:ConnectivityManager = this.applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
-
         //Internet connection ok
-        if(activeNetwork != null && activeNetwork.isConnected){
+        if (NetworkHelper.getNetworkAvailability(this)) {
             //get local hash
-            localDbEventHash=  JsonHelper.getEventsHash(this)
+            localDbEventHash = JsonHelper.getEventsHash(this)
             //get cloud hash
             GlobalScope.launch {
-                cloudDbEventHash = FirestoreManager().getSyncEventsHash()
+                cloudDbEventHash = FirestoreManager.getSyncEventsHash()
                 checkHashes()
             }
         }
-
-//        //check if local files exists
-//        val filesExists: Boolean = JsonHelper.checkIfFilesExists(this)
-//
-//        if (!filesExists)
-//            JsonHelper.createFiles(this, "", "")
-//
-//        //Gets local and cloud hashes
-//        cloudDbEventHash = firestoreManager.getEventsHash(this.applicationContext)
-//        JsonHelper.getEventsHash(this)
-//
-//        checkHashes()
     }
 
-    fun setCloudHash(hash:Long){
+    fun setCloudHash(hash: Long) {
         cloudDbEventHash = hash
         Log.d("CLOUD HASH", "$cloudDbEventHash")
 
@@ -108,7 +89,7 @@ class RuedasRarasApp : Application() {
         Log.d(ContentValues.TAG, "CLOUD HASH:  $cloudDbEventHash")
 
         if (cloudDbEventHash != localDbEventHash) {
-            cloudDbEventsData = FirestoreManager().getSyncEventsList()
+            cloudDbEventsData = FirestoreManager.getSyncEventsList()
             JsonHelper.saveHash(this as Application, cloudDbEventHash)
             JsonHelper.saveRawEventsData(this as Application, cloudDbEventsData)
         } else {

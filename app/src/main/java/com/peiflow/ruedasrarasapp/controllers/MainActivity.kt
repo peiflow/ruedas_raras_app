@@ -1,5 +1,6 @@
-package com.peiflow.ruedasrarasapp
+package com.peiflow.ruedasrarasapp.controllers
 
+import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -23,15 +24,15 @@ import kotlinx.android.synthetic.main.content_main.*
 import android.R.id.message
 import android.support.v7.widget.RecyclerView
 import android.widget.LinearLayout
+import android.widget.Toast
+import com.peiflow.ruedasrarasapp.R
 import com.peiflow.ruedasrarasapp.adapters.FirestoreManager
+import com.peiflow.ruedasrarasapp.helpers.JsonHelper
+import com.peiflow.ruedasrarasapp.helpers.NetworkHelper
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    var REQUEST_CODE: Int = 100
     var PERMISSION_REQUEST: Int = 200
-
-    val firestoneManager: FirestoreManager = FirestoreManager()
-    //var dbm: DatabaseManager = DatabaseManager()
     var eventsList: MutableList<EventData> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,19 +40,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-
         checkPermissions()
 
-        //firestoneManager.getEventsByDate(this@MainActivity)
-
         eventsList = JsonHelper.getEventsData(this.application)
-        if (eventsList.count() == 0) {
-            Toast.makeText(this, "eventsList = 0. calling firestore", Toast.LENGTH_LONG)
-            firestoneManager.getEventsByDate(this@MainActivity)
-        } else {
-            Toast.makeText(this, "eventsList > 0. using local data", Toast.LENGTH_LONG)
+
+        if (eventsList.count() > 0)
             setupRecyclerView(eventsList)
-        }
+        else if (NetworkHelper.getNetworkAvailability(this))
+            FirestoreManager.getEventsByDate(this@MainActivity)
+        else
+            Toast.makeText(this, "Por favor comprueba la conexión a Internet del dispositivo", Toast.LENGTH_LONG).show()
 
         val toggle = ActionBarDrawerToggle(
             this,
@@ -68,7 +66,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         nav_view.setNavigationItemSelectedListener(this)
-        //dbm.ReadDatabase(this, eventsList)
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
@@ -76,22 +73,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             email.putExtra(Intent.EXTRA_EMAIL, arrayOf("asociacionruedasraras@gmail.com"))
             email.putExtra(Intent.EXTRA_SUBJECT, "Ruedas Raras App")
             email.putExtra(Intent.EXTRA_TEXT, message)
-
             //need this to prompts email client only
             email.type = "message/rfc822"
-
-            startActivity(Intent.createChooser(email, "Choose an Email client :"))
+            startActivity(Intent.createChooser(email, "Seleccione un cliente de email:"))
         }
-    }
-
-    override fun onStart() {
-        //setupRecyclerView()
-        super.onStart()
-    }
-
-    override fun onResume() {
-        //setupRecyclerView()
-        super.onResume()
     }
 
     fun eventItemClicked(eventItem: EventData) {
@@ -134,14 +119,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_schedule -> {
                 val intent = Intent(this, Schedule::class.java)
-                val eventsArray:Array<EventData> = eventsList.toTypedArray()
+                val eventsArray: Array<EventData> = eventsList.toTypedArray()
                 intent.putExtra("Events", eventsArray)
                 startActivity(intent)
             }
             R.id.nav_temoto_hints -> {
-                startActivity(Intent(this, Hints::class.java))
+                startActivity(Intent(this, TemotoHints::class.java))
             }
-            R.id.nav_partners->{
+            R.id.nav_partners -> {
                 startActivity(Intent(this, Partners::class.java))
             }
             R.id.nav_rr_face -> {
@@ -190,7 +175,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-    fun setupRecyclerView(events:MutableList<EventData>){
+    fun setupRecyclerView(events: MutableList<EventData>) {
         var recyclerView: RecyclerView = findViewById(R.id.rv_events)
         val linearLayout = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         val adapter = EventAdapter(events.toList(), this::eventItemClicked)

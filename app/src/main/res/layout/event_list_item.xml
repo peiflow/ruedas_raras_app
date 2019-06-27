@@ -5,7 +5,6 @@
                 style="@style/CardView.Dark"
                 android:layout_marginBottom="10dp"
                 android:layout_height="120dp">
-
     <ImageView android:layout_width="match_parent"
                android:layout_height="match_parent"
                android:id="@+id/card_image_btn"
@@ -15,27 +14,31 @@
                style="@android:style/Widget.DeviceDefault.ImageButton"
                app:srcCompat="@drawable/tire_track_1"/>
     <LinearLayout android:id="@+id/event_list_item_linear_layout"
-                  android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
                   android:layout_centerVertical="true"
                   android:layout_alignLeft="@+id/card_image_btn"
                   android:layout_alignRight="@+id/card_image_btn"
                   android:layout_alignStart="@id/card_image_btn"
                   android:layout_alignEnd="@id/card_image_btn"
-                  android:orientation="vertical" android:layout_marginLeft="15dp"
-                  android:layout_marginTop="15dp" android:layout_marginStart="15dp"
+                  android:orientation="vertical"
+                  android:layout_marginTop="15dp"
+                  android:layout_marginStart="5dp"
+                  android:layout_marginLeft="5dp"
                   android:layout_marginRight="15dp"
-                  android:layout_marginEnd="15dp" android:layout_marginBottom="15dp" android:paddingLeft="15dp">
+                  android:layout_marginEnd="15dp"
+                  android:layout_marginBottom="15dp"
+                  >
         <TextView
-                style="@style/event_list_item"
-                android:textSize="32sp"
                 android:id="@+id/tv_event_item_name"
+                style="@style/event_list_item"
+                android:textSize="28sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         <TextView
-                style="@style/event_list_item"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:id="@+id/tv_event_item_datetime"
+                style="@style/event_list_item"
+                android:textSize="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
     </LinearLayout>

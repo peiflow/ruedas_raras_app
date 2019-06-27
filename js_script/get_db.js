@@ -7,5 +7,5 @@ firestoreService.initializeApp(serviceAccount, databaseURL);
  
 // Start exporting your data
 firestoreService
-  .backup('events_hash')
+  .backup('events')
   .then(data => console.log(JSON.stringify(data)))
