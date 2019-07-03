@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.peiflow.ruedasrarasapp">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <application
+            android:name=".controllers.RuedasRarasApp"
+            android:allowBackup="true"
+            android:icon="@mipmap/ruedas_raras"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ruedas_raras_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity android:name=".controllers.About"
+                  android:theme="@style/AppTheme.NoActionBar.PopupStyle">
+        </activity>
+        <activity
+                android:name=".controllers.MainActivity"
+                android:label="@string/app_name"
+                android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".controllers.TemotoHints"
+                android:label="@string/title_activity_hints"
+                android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".controllers.MainActivity"/>
+        </activity>
+        <activity
+                android:name=".controllers.TemotoInstructionsPopup"
+                android:theme="@style/AppTheme.NoActionBar.PopupStyle">
+        </activity>
+        <activity
+                android:name=".controllers.Cartel"
+                android:parentActivityName=".controllers.MainActivity"
+                android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".controllers.MainActivity"/>
+        </activity>
+        <activity
+                android:name=".controllers.Partners"
+                android:parentActivityName=".controllers.MainActivity"
+                android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".controllers.MainActivity"/>
+        </activity>
+        <activity
+                android:name=".controllers.Schedule"
+                android:label="@string/title_activity_schedule"
+                android:parentActivityName=".controllers.MainActivity"
+                android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".controllers.MainActivity"/>
+        </activity>
+        <activity
+                android:name=".controllers.QrScanner"
+                android:parentActivityName=".controllers.MainActivity"
+                android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".controllers.MainActivity"/>
+        </activity>
+        <activity
+                android:name=".controllers.EventDetails"
+                android:label="@string/title_activity_event_details"
+                android:parentActivityName=".controllers.MainActivity"
+                android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".controllers.MainActivity"/>
+        </activity>
+
+        <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="@string/google_maps_key"/>
+    </application>
+
+</manifest>

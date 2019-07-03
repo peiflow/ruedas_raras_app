@@ -1,0 +1,256 @@
+{
+  "events": {
+      "0": {
+          "name": "Inscripciones",
+          "routeUrl": "https://www.google.es/maps/place/Oficina+de+Empleo+-+Palacio+Condes+de+Requena/@41.5224836,-5.3912375,20.25z/data=!4m5!3m4!1s0xd3894d2fe1e0df3:0x6afe44a1a550d7e7!8m2!3d41.5224361!4d-5.391047",
+          "locations": [
+              {
+                  "lat": 41.52233,
+                  "lng": -5.390777
+              }
+          ],
+          "dateTime": "26/07/2019 18:00:00",
+          "description": "Apertura de inscripciones del viernes hasta las 22:00 horas. Con cerveza de bienvenida.",
+          "address": "Palacio Condes de Requena"
+      },
+      "1": {
+          "description": "Cena y vino de bienvenida ofrecidos por el bar La Colegiata. El plato servido será carrilleras al Tinto de Toro. Bebidas no incluidas.",
+          "address": "Plaza de la Colegiata, 12",
+          "name": "Cena",
+          "routeUrl": "https://www.google.es/maps/place/Bar+Restaurante+La+Colegiata/@41.5202724,-5.3945756,21z/data=!4m12!1m6!3m5!1s0xd3894d2fe1e0df3:0x6afe44a1a550d7e7!2sOficina+de+Empleo+-+Palacio+Condes+de+Requena!8m2!3d41.5224361!4d-5.391047!3m4!1s0xd38eb2cae5c10a7:0xbf3091bbe8fb499c!8m2!3d41.5203129!4d-5.394381",
+          "locations": [
+              {
+                  "lng": -5.394448,
+                  "lat": 41.520263
+              }
+          ],
+          "dateTime": "26/07/2019 21:00:00"
+      },
+      "2": {
+          "name": "“Lokomotores”",
+          "routeUrl": "https://www.google.es/maps/@41.5214261,-5.3945753,21z",
+          "locations": [
+              {
+                  "lat": 41.521413,
+                  "lng": -5.39448
+              }
+          ],
+          "dateTime": "26/07/2019 23:00:00",
+          "description": "Concierto del grupo “Lokomotores” ofrecido por los bares Play y El Dorado.",
+          "address": "Calle Trasalfóndiga"
+      },
+      "3": {
+          "description": "Apertura de inscripciones del sábado. Inicio del juego-concurso Temoto. Puedes participar con esta app!!",
+          "address": "Palacio Condes de Requena",
+          "name": "Inscripciones",
+          "routeUrl": "https: //www.google.es/maps/place/Oficina+de+Empleo+-+Palacio+Condes+de+Requena/@41.5224836,-5.3912375,20.25z/data=!4m5!3m4!1s0xd3894d2fe1e0df3:0x6afe44a1a550d7e7!8m2!3d41.5224361!4d-5.391047",
+          "locations": [
+              {
+                  "lat": 41.52233,
+                  "lng": -5.390777
+              }
+          ],
+          "dateTime": "27/07/2019 09:00:00"
+      },
+      "4": {
+          "name": "Desayuno",
+          "routeUrl": "https://www.google.com/maps/place/Caf%C3%A9+Imperial.+Rey+Del+Pincho/@41.5211061,-5.3940824,21z/data=!4m13!1m7!3m6!1s0xd38c02b2ba2b089:0x40587075af5b0b0!2sToro,+Zamora!3b1!8m2!3d41.4540325!4d-5.4149003!3m4!1s0xd3894d34a3ed283:0xfc8adc88c1034361!8m2!3d41.5209515!4d-5.3938144",
+          "locations": [
+              {
+                  "lat": 41.520964,
+                  "lng": -5.393838
+              }
+          ],
+          "dateTime": "27/07/2019 09:00:00",
+          "description": "Desayuno ofrecido por la cafetería El Imperial.",
+          "address": "Plaza Mayor nº 19"
+      },
+      "5": {
+          "address": "Plaza Mayor",
+          "name": "Ruta a Tiedra",
+          "routeUrl": "https://www.google.es/maps/dir/Toro/47851+San+Pedro+de+Latarce,+Valladolid/Villanueva+de+los+Caballeros/Urue%C3%B1a/Tiedra/@41.6273993,-5.2816707,11z/data=!4m42!4m41!1m10!1m1!1s0xd3894cd643d87fd:0x97f55e63ea55eda5!2m2!1d-5.3913375!2d41.5274417!3m4!1m2!1d-5.449241!2d41.7148828!3s0xd38f476434dceb5:0x7fc33316c972eefd!1m5!1m1!1s0xd388be9fc5e06c3:0x8a12df367fea4564!2m2!1d-5.3246285!2d41.7357226!1m5!1m1!1s0xd38885fff2b95ad:0xace1648ad3103e79!2m2!1d-5.2488573!2d41.7590608!1m10!1m1!1s0xd388673e6d3018f:0x4d59cf21982fb3ad!2m2!1d-5.2012251!2d41.7283353!3m4!1m2!1d-5.1508596!2d41.6798597!3s0xd388485c66e10e1:0x280fd1abf6d5a16f!1m5!1m1!1s0xd388fcc5ce6fded:0xb20006c40bd63faa!2m2!1d-5.2645259!2d41.6540243!3e0",
+          "locations": [
+              {
+                  "lng": -5.393818,
+                  "lat": 41.521052
+              }
+          ],
+          "dateTime": "27/07/2019 11:00:00",
+          "description": "Ruta con pincho y visita al castillo de Tiedra. Salida de Plaza Mayor. Regreso libre. Total: 85 km"
+      },
+      "6": {
+          "routeUrl": "https://www.google.com/maps/place/Hotel+Mar%C3%ADa+de+Molina/@41.5214682,-5.3914227,19.5z/data=!4m13!1m7!3m6!1s0xd38c02b2ba2b089:0x40587075af5b0b0!2sToro,+Zamora!3b1!8m2!3d41.4540325!4d-5.4149003!3m4!1s0xd3894d3bd946d21:0x66232faddfece7e6!8m2!3d41.5212749!4d-5.390933",
+          "locations": [
+              {
+                  "lng": -5.390992,
+                  "lat": 41.521266
+              }
+          ],
+          "dateTime": "27/07/2019 15:00:00",
+          "description": "Comida en Hotel Mª de Molina. Menú: Arroz a la zamorana, Codillo, Postre.",
+          "address": "Plaza Delhy Tejero, 1",
+          "name": "Comida"
+      },
+      "7": {
+          "name": "Piscina",
+          "routeUrl": "https://www.google.com/maps/place/Piscina+Municipal/@41.5293288,-5.386552,18.25z/data=!4m13!1m7!3m6!1s0xd38c02b2ba2b089:0x40587075af5b0b0!2sToro,+Zamora!3b1!8m2!3d41.4540325!4d-5.4149003!3m4!1s0xd3894c8adf58d3d:0x81b23919c3bd5b0a!8m2!3d41.5304381!4d-5.3840692",
+          "locations": [
+              {
+                  "lat": 41.530506,
+                  "lng": -5.383981
+              }
+          ],
+          "dateTime": "27/07/2019 16:00:00",
+          "description": "Entrada a piscina gratuita.",
+          "address": "Camino Ruales, 2"
+      },
+      "8": {
+          "address": "Av. Ronda de Corredera, 55",
+          "name": "“El Duende Eléctrico”",
+          "routeUrl": "https://www.google.com/maps/place/41%C2%B031'37.1%22N+5%C2%B023'52.5%22W/@41.526966,-5.3984702,19z/data=!3m1!4b1!4m14!1m7!3m6!1s0xd38c02b2ba2b089:0x40587075af5b0b0!2sToro,+Zamora!3b1!8m2!3d41.4540325!4d-5.4149003!3m5!1s0x0:0x0!7e2!8m2!3d41.5269649!4d-5.3979235",
+          "locations": [
+              {
+                  "lat": 41.526965,
+                  "lng": -5.397923
+              }
+          ],
+          "dateTime": "27/07/2019 19:00:00",
+          "description": "Concierto “El Duende Eléctrico”. Ofrecido por los bares Jayda y El Último de la fila."
+      },
+      "9": {
+          "description": "Exhibición de trial de Miguel Ángel Jiménez. Ofrecida por los bares Jayda y El Último de la fila.",
+          "address": "Calle Ronda de Capuchinos",
+          "name": " Exhibición Trial",
+          "routeUrl": "https: //www.google.com/maps/place/Toro,+Zamora/@41.5266894,-5.3972358,20.25z/data=!4m5!3m4!1s0xd38c02b2ba2b089:0x40587075af5b0b0!8m2!3d41.4540325!4d-5.4149003",
+          "locations": [
+              {
+                  "lat": 41.526595,
+                  "lng": -5.397006
+              }
+          ],
+          "dateTime": "27/07/2019 20:30:00"
+      },
+      "10": {
+          "description": "Desfile de antorchas en honor a los compañeros caídos. Salida desde la zona de exhibición.",
+          "address": "Calle Ronda de Corredera",
+          "name": "Desfile antorchas",
+          "routeUrl": "https: //www.google.com/maps/place/41%C2%B031'37.0%22N+5%C2%B023'51.4%22W/@41.5269688,-5.3979367,19.75z/data=!4m14!1m7!3m6!1s0xd38c02b2ba2b089:0x40587075af5b0b0!2sToro,+Zamora!3b1!8m2!3d41.4540325!4d-5.4149003!3m5!1s0x0:0x0!7e2!8m2!3d41.5269531!4d-5.3976195",
+          "locations": [
+              {
+                  "lng": -5.39762,
+                  "lat": 41.526953
+              }
+          ],
+          "dateTime": "27/07/2019 22:15:00"
+      },
+      "11": {
+          "locations": [
+              {
+                  "lng": -5.393818,
+                  "lat": 41.521052
+              }
+          ],
+          "dateTime": "27/07/2019 22:30:00",
+          "description": "Cena de pinchos por los bares colaboradores de la Plaza Mayor. Bebidas no incluidas.",
+          "address": "Plaza Mayor",
+          "name": "Cena",
+          "routeUrl": "https://www.google.com/maps/place/Plaza+Mayor,+49800+Toro,+Zamora/@41.521002,-5.3942569,19.75z/data=!4m13!1m7!3m6!1s0xd38c02b2ba2b089:0x40587075af5b0b0!2sToro,+Zamora!3b1!8m2!3d41.4540325!4d-5.4149003!3m4!1s0xd38eb2ccabd268f:0xde9a016b3e43fe2e!8m2!3d41.5211638!4d-5.3940369"
+      },
+      "12": {
+          "locations": [
+              {
+                  "lat": 41.52261,
+                  "lng": -5.389258
+              }
+          ],
+          "dateTime": "27/07/2019 22:30:00",
+          "description": "Entrada gratuita al musical Los Miserables que tendrá lugar en la Plaza de Toros.",
+          "address": "Plaza de Toros",
+          "name": "Los Miserables",
+          "routeUrl": "https://www.google.es/maps/place/Plaza+de+Toros/@41.522728,-5.3889737,18.75z/data=!4m13!1m7!3m6!1s0xd38c02b2ba2b089:0x40587075af5b0b0!2sToro,+Zamora!3b1!8m2!3d41.4540325!4d-5.4149003!3m4!1s0xd3894d1788f1823:0xc5fa73195884d602!8m2!3d41.5226399!4d-5.3885056"
+      },
+      "13": {
+          "name": "Macroconcierto",
+          "routeUrl": "https://www.google.com/maps/place/Plaza+Mayor,+49800+Toro,+Zamora/@41.521002,-5.3942569,19.75z/data=!4m13!1m7!3m6!1s0xd38c02b2ba2b089:0x40587075af5b0b0!2sToro,+Zamora!3b1!8m2!3d41.4540325!4d-5.4149003!3m4!1s0xd38eb2ccabd268f:0xde9a016b3e43fe2e!8m2!3d41.5211638!4d-5.3940369",
+          "locations": [
+              {
+                  "lat": 41.521052,
+                  "lng": -5.393818
+              }
+          ],
+          "dateTime": "27/07/2019 23:50:00",
+          "description": " Macroconcierto de “Xeria” y “Last days of Eden”  en la Plaza Mayor ofrecido por el Excmo. Ayto. de Toro.",
+          "address": "Plaza Mayor"
+      },
+      "14": {
+          "locations": [
+              {
+                  "lat": 41.521165,
+                  "lng": -5.393715
+              }
+          ],
+          "dateTime": "28/07/2019 10:00:00",
+          "description": "Desayuno ofrecido por el bar La Comedia.",
+          "address": "Plaza Mayor, 13",
+          "name": "Desayuno",
+          "routeUrl": "https://www.google.com/maps/place/Cafe+Bar+La+Comedia/@41.5210825,-5.3939786,21z/data=!4m13!1m7!3m6!1s0xd38c02b2ba2b089:0x40587075af5b0b0!2sToro,+Zamora!3b1!8m2!3d41.4540325!4d-5.4149003!3m4!1s0x0:0x94f8f90656d0c7dd!8m2!3d41.5211492!4d-5.3936631"
+      },
+      "15": {
+          "description": "Ruta a Venialbo con pincho. Salida Plaza Mayor. Vuelta libre. Total: 70 km",
+          "address": "Plaza Mayor",
+          "name": "Ruta a Venialbo",
+          "routeUrl": "https://www.google.es/maps/dir/Toro+(Zamora),+Toro/47530+San+Rom%C3%A1n+de+Hornija,+Valladolid/Castronu%C3%B1o/La+B%C3%B3veda+de+Toro/Venialbo/@41.433834,-5.5421648,11z/data=!3m1!4b1!4m32!4m31!1m5!1m1!1s0xd38959c132a704f:0xa2b7a1b491bfb470!2m2!1d-5.3913375!2d41.5274417!1m5!1m1!1s0xd389620bacd852d:0x797ca0d3abb920fc!2m2!1d-5.2847709!2d41.480658!1m5!1m1!1s0xd38bb76f5686111:0x9bf614a77db387a6!2m2!1d-5.2671378!2d41.387238!1m5!1m1!1s0xd38c79765e54131:0xd2d704f21b666fe2!2m2!1d-5.4109725!2d41.3430855!1m5!1m1!1s0xd38c361b0eaff17:0x789cd4ef0164bb81!2m2!1d-5.5367936!2d41.3895764!3e0",
+          "locations": [
+              {
+                  "lat": 41.521052,
+                  "lng": -5.393818
+              }
+          ],
+          "dateTime": "28/07/2019 11:00:00"
+      },
+      "16": {
+          "name": "Comida",
+          "routeUrl": "https://www.google.com/maps/place/Bodega+Latarce/@41.5383893,-5.3799347,17.71z/data=!4m13!1m7!3m6!1s0xd38c02b2ba2b089:0x40587075af5b0b0!2sToro,+Zamora!3b1!8m2!3d41.4540325!4d-5.4149003!3m4!1s0xd38953d3fbccc1d:0x2311df5a1fc63a97!8m2!3d41.5386228!4d-5.3781858",
+          "locations": [
+              {
+                  "lat": 41.538903,
+                  "lng": -5.378674
+              }
+          ],
+          "dateTime": "28/07/2019 15:00:00",
+          "description": "Paella ofrecida por Bodega Latarce. Entrega de trofeos, agradecimientos y premio al ganador del juego Temoto.",
+          "address": "Ctra. Medina de Rioseco, km 1"
+      },
+      "17": {
+          "name": "Monólogo",
+          "routeUrl": "https://www.google.com/maps/place/Bodega+Latarce/@41.5389054,-5.3800135,17z/data=!4m13!1m7!3m6!1s0xd38c02b2ba2b089:0x40587075af5b0b0!2sToro,+Zamora!3b1!8m2!3d41.4540325!4d-5.4149003!3m4!1s0xd38953d3fbccc1d:0x2311df5a1fc63a97!8m2!3d41.5386223!4d-5.3781851",
+          "locations": [
+              {
+                  "lat": 41.538903,
+                  "lng": -5.378674
+              }
+          ],
+          "dateTime": "28/07/2019 17:00:00",
+          "description": "Monólogo a cargo de Juan Sinde.",
+          "address": "Ctra. Medina de Rioseco, km 1"
+      },
+      "18": {
+          "name": "Sorteo y premios",
+          "routeUrl": "https://www.google.com/maps/place/Bodega+Latarce/@41.5389054,-5.3800135,17z/data=!4m13!1m7!3m6!1s0xd38c02b2ba2b089:0x40587075af5b0b0!2sToro,+Zamora!3b1!8m2!3d41.4540325!4d-5.4149003!3m4!1s0xd38953d3fbccc1d:0x2311df5a1fc63a97!8m2!3d41.5386223!4d-5.3781851",
+          "locations": [
+              {
+                  "lat": 41.538845,
+                  "lng": -5.378383
+              }
+          ],
+          "dateTime": "28/07/2019 18:30:00",
+          "description": "Sorteo de obsequios y despedida.",
+          "address": "Ctra. Medina de Rioseco, km 1"
+      }
+  },
+  "events_hash":{
+      "1":{
+          "hash":123
+      }
+  }
+}
