@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".controllers.About"
+        android:padding="10dp"
+        android:layout_centerInParent="true">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="vertical">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:text="@string/about_author" android:layout_marginBottom="15dp" style="@style/LabelStyle"/>
+
+        <TextView android:id="@+id/my_mail"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:text="@string/about_contact" android:layout_marginBottom="15dp" style="@style/LabelStyle"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:text="@string/about_year" android:layout_marginBottom="55dp" style="@style/LabelStyle"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:text="@string/about_privacy" style="@style/ContentTextStyle"/>
+
+    </LinearLayout>
+</ScrollView>

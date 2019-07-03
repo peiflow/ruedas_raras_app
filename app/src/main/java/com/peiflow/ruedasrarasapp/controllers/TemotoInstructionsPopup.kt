@@ -11,7 +11,7 @@ class TemotoInstructionsPopup : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_temoto_instructions_popup)
 
-        val dm: DisplayMetrics = DisplayMetrics()
+        val dm = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(dm)
         val with:Int = (dm.widthPixels*0.9).toInt()
         val height:Int = (dm.heightPixels*0.8).toInt()

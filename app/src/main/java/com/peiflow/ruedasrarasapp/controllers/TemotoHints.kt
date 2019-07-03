@@ -19,16 +19,6 @@ class TemotoHints : AppCompatActivity() {
 
         fab_temoto_instructions.setOnClickListener {
             startActivity(Intent(this, TemotoInstructionsPopup::class.java))
-//            val inflater:LayoutInflater = applicationContext.getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
-//            val customView: View = inflater.inflate(R.layout.temoto_instructions_popup, null)
-//            val popupWindow:PopupWindow = PopupWindow(customView, ViewGroup.LayoutParams.MATCH_PARENT ,ViewGroup.LayoutParams.WRAP_CONTENT)
-//            if(Build.VERSION.SDK_INT>=21){
-//                popupWindow.setElevation(5.0f);
-//            }
-//            ib_close.setOnClickListener {
-//                popupWindow.dismiss()
-//            }
-//            popupWindow.showAtLocation(sv_temoto_instr, Gravity.CENTER,0,0);
        }
     }
 
